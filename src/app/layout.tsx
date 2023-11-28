@@ -6,8 +6,8 @@ import { type Metadata } from 'next'
 
 export const metadata: Metadata = {
   title: {
-    template: '%s - TaxPal',
-    default: 'Oconee Winds - Wind ensemble Oconee, SC',
+    template: '',
+    default: 'Oconee Winds - Community Band in Oconee, SC',
   },
   description: 'Wind ensemble in Oconee South Carolina',
 }
