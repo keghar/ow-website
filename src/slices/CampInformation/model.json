@@ -1,0 +1,107 @@
+{
+  "id": "camp_information",
+  "type": "SharedSlice",
+  "name": "CampInformation",
+  "description": "CampInformation",
+  "variations": [
+    {
+      "id": "default",
+      "name": "Default",
+      "docURL": "...",
+      "version": "initial",
+      "description": "Default",
+      "imageUrl": "",
+      "primary": {
+        "description": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Description",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "heading2"
+          }
+        },
+        "date": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Date",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "deadline": {
+          "type": "Date",
+          "config": {
+            "label": "Deadline",
+            "placeholder": ""
+          }
+        },
+        "location": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Location",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,preformatted,heading1,heading2,heading3,heading4,heading5,heading6,strong,em,hyperlink,image,embed,list-item,o-list-item,rtl"
+          }
+        },
+        "cost": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Cost",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "staff": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Staff",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em,hyperlink,image"
+          }
+        },
+        "who_can_attend": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Who can attend",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "multi": "paragraph,list-item,o-list-item"
+          }
+        },
+        "acceptance_date": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Acceptance Date",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph"
+          }
+        },
+        "registration_form": {
+          "type": "Link",
+          "config": {
+            "label": "Registration Form",
+            "placeholder": "",
+            "allowTargetBlank": false,
+            "select": null
+          }
+        },
+        "deadline_info": {
+          "type": "StructuredText",
+          "config": {
+            "label": "Deadline Info",
+            "placeholder": "",
+            "allowTargetBlank": true,
+            "single": "paragraph,strong,em"
+          }
+        }
+      },
+      "items": {}
+    }
+  ]
+}

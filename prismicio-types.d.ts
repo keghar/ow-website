@@ -4,6 +4,332 @@ import type * as prismic from '@prismicio/client'
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
+type CampDocumentDataSlicesSlice =
+  | FaqSlice
+  | MoreDetailsSlice
+  | ExperienceSlice
+  | CampInformationSlice
+
+/**
+ * Content for Camp documents
+ */
+interface CampDocumentData {
+  /**
+   * Page Title field in *Camp*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp.page_title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  page_title: prismic.TitleField
+
+  /**
+   * Slice Zone field in *Camp*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<CampDocumentDataSlicesSlice> /**
+   * Meta Description field in *Camp*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: camp.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Camp*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Camp*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: camp.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Camp document from Prismic
+ *
+ * - **API ID**: `camp`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type CampDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<CampDocumentData>, 'camp', Lang>
+
+type EventDocumentDataSlicesSlice = EventSlice
+
+/**
+ * Content for Event documents
+ */
+interface EventDocumentData {
+  /**
+   * Title field in *Event*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Description field in *Event*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Image field in *Event*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Time field in *Event*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.time
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  time: prismic.RichTextField
+
+  /**
+   * Address field in *Event*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.address
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  address: prismic.RichTextField
+
+  /**
+   * Conductor field in *Event*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.conductor
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  conductor: prismic.RichTextField
+
+  /**
+   * Facebook Event field in *Event*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.facebook_event
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  facebook_event: prismic.LinkField
+
+  /**
+   * Program Link field in *Event*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.program_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  program_link: prismic.LinkToMediaField
+
+  /**
+   * Video Link field in *Event*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.video_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  video_link: prismic.LinkField
+
+  /**
+   * Video Embed field in *Event*
+   *
+   * - **Field Type**: Embed
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.video_embed
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#embed
+   */
+  video_embed: prismic.EmbedField
+
+  /**
+   * Archive field in *Event*
+   *
+   * - **Field Type**: Boolean
+   * - **Placeholder**: *None*
+   * - **Default Value**: false
+   * - **API ID Path**: event.archive
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#boolean
+   */
+  archive: prismic.BooleanField
+
+  /**
+   * Video Iframe field in *Event*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.video_iframe
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  video_iframe: prismic.KeyTextField
+
+  /**
+   * Date field in *Event*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  date: prismic.RichTextField
+
+  /**
+   * Location Link field in *Event*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.location_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  location_link: prismic.LinkField
+
+  /**
+   * Slice Zone field in *Event*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<EventDocumentDataSlicesSlice>
+}
+
+/**
+ * Event document from Prismic
+ *
+ * - **API ID**: `event`
+ * - **Repeatable**: `true`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EventDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithUID<Simplify<EventDocumentData>, 'event', Lang>
+
+type EventArchiveDocumentDataSlicesSlice = EventSlice
+
+/**
+ * Content for Event Archive documents
+ */
+interface EventArchiveDocumentData {
+  /**
+   * Slice Zone field in *Event Archive*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_archive.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<EventArchiveDocumentDataSlicesSlice> /**
+   * Meta Description field in *Event Archive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: event_archive.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Event Archive*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event_archive.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Event Archive*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: event_archive.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Event Archive document from Prismic
+ *
+ * - **API ID**: `event_archive`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type EventArchiveDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<EventArchiveDocumentData>,
+    'event_archive',
+    Lang
+  >
+
 /**
  * Item in *Settings → Navigation*
  */
@@ -94,7 +420,390 @@ export type SettingsDocument<Lang extends string = string> =
     Lang
   >
 
-export type AllDocumentTypes = SettingsDocument
+export type AllDocumentTypes =
+  | CampDocument
+  | EventDocument
+  | EventArchiveDocument
+  | SettingsDocument
+
+/**
+ * Primary content in *CampInformation → Primary*
+ */
+export interface CampInformationSliceDefaultPrimary {
+  /**
+   * Description field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+
+  /**
+   * Date field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.date
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  date: prismic.RichTextField
+
+  /**
+   * Deadline field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.deadline
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  deadline: prismic.DateField
+
+  /**
+   * Location field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.location
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  location: prismic.RichTextField
+
+  /**
+   * Cost field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.cost
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  cost: prismic.RichTextField
+
+  /**
+   * Staff field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.staff
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  staff: prismic.RichTextField
+
+  /**
+   * Who can attend field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.who_can_attend
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  who_can_attend: prismic.RichTextField
+
+  /**
+   * Acceptance Date field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.acceptance_date
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  acceptance_date: prismic.RichTextField
+
+  /**
+   * Registration Form field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.registration_form
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  registration_form: prismic.LinkField
+
+  /**
+   * Deadline Info field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.deadline_info
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  deadline_info: prismic.RichTextField
+}
+
+/**
+ * Default variation for CampInformation Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CampInformationSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<CampInformationSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *CampInformation*
+ */
+type CampInformationSliceVariation = CampInformationSliceDefault
+
+/**
+ * CampInformation Shared Slice
+ *
+ * - **API ID**: `camp_information`
+ * - **Description**: CampInformation
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type CampInformationSlice = prismic.SharedSlice<
+  'camp_information',
+  CampInformationSliceVariation
+>
+
+/**
+ * Default variation for Events Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Record<string, never>,
+  never
+>
+
+/**
+ * Slice variation for *Events*
+ */
+type EventSliceVariation = EventSliceDefault
+
+/**
+ * Events Shared Slice
+ *
+ * - **API ID**: `event`
+ * - **Description**: Event
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type EventSlice = prismic.SharedSlice<'event', EventSliceVariation>
+
+/**
+ * Primary content in *Experience → Primary*
+ */
+export interface ExperienceSliceDefaultPrimary {
+  /**
+   * Title field in *Experience → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Camp Experience
+   * - **API ID Path**: experience.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+}
+
+/**
+ * Primary content in *Experience → Items*
+ */
+export interface ExperienceSliceDefaultItem {
+  /**
+   * Subtitle field in *Experience → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Jr High or Sr High Experience
+   * - **API ID Path**: experience.items[].subtitle
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle: prismic.TitleField
+
+  /**
+   * Description field in *Experience → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Paragraph explaining the experience
+   * - **API ID Path**: experience.items[].description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Default variation for Experience Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ExperienceSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ExperienceSliceDefaultPrimary>,
+  Simplify<ExperienceSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Experience*
+ */
+type ExperienceSliceVariation = ExperienceSliceDefault
+
+/**
+ * Experience Shared Slice
+ *
+ * - **API ID**: `experience`
+ * - **Description**: Experience
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ExperienceSlice = prismic.SharedSlice<
+  'experience',
+  ExperienceSliceVariation
+>
+
+/**
+ * Primary content in *Faq → Primary*
+ */
+export interface FaqSliceDefaultPrimary {
+  /**
+   * Title field in *Faq → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: Frequently Asked Questions
+   * - **API ID Path**: faq.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+}
+
+/**
+ * Primary content in *Faq → Items*
+ */
+export interface FaqSliceDefaultItem {
+  /**
+   * Question field in *Faq → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: Question
+   * - **API ID Path**: faq.items[].question
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  question: prismic.RichTextField
+
+  /**
+   * Answer field in *Faq → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: faq.items[].answer
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  answer: prismic.RichTextField
+}
+
+/**
+ * Default variation for Faq Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<FaqSliceDefaultPrimary>,
+  Simplify<FaqSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Faq*
+ */
+type FaqSliceVariation = FaqSliceDefault
+
+/**
+ * Faq Shared Slice
+ *
+ * - **API ID**: `faq`
+ * - **Description**: Faq
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>
+
+/**
+ * Primary content in *MoreDetails → Primary*
+ */
+export interface MoreDetailsSliceDefaultPrimary {
+  /**
+   * Title field in *MoreDetails → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: More Details
+   * - **API ID Path**: more_details.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Description field in *MoreDetails → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: more_details.primary.description
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  description: prismic.RichTextField
+}
+
+/**
+ * Primary content in *MoreDetails → Items*
+ */
+export interface MoreDetailsSliceDefaultItem {
+  /**
+   * Subtitle field in *MoreDetails → Items*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: more_details.items[].subtitle_1
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  subtitle_1: prismic.TitleField
+
+  /**
+   * Paragraph field in *MoreDetails → Items*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: more_details.items[].paragraph
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  paragraph: prismic.RichTextField
+}
+
+/**
+ * Default variation for MoreDetails Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MoreDetailsSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<MoreDetailsSliceDefaultPrimary>,
+  Simplify<MoreDetailsSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *MoreDetails*
+ */
+type MoreDetailsSliceVariation = MoreDetailsSliceDefault
+
+/**
+ * MoreDetails Shared Slice
+ *
+ * - **API ID**: `more_details`
+ * - **Description**: MoreDetails
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type MoreDetailsSlice = prismic.SharedSlice<
+  'more_details',
+  MoreDetailsSliceVariation
+>
 
 declare module '@prismicio/client' {
   interface CreateClient {
@@ -106,10 +815,41 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
+      CampDocument,
+      CampDocumentData,
+      CampDocumentDataSlicesSlice,
+      EventDocument,
+      EventDocumentData,
+      EventDocumentDataSlicesSlice,
+      EventArchiveDocument,
+      EventArchiveDocumentData,
+      EventArchiveDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      CampInformationSlice,
+      CampInformationSliceDefaultPrimary,
+      CampInformationSliceVariation,
+      CampInformationSliceDefault,
+      EventSlice,
+      EventSliceVariation,
+      EventSliceDefault,
+      ExperienceSlice,
+      ExperienceSliceDefaultPrimary,
+      ExperienceSliceDefaultItem,
+      ExperienceSliceVariation,
+      ExperienceSliceDefault,
+      FaqSlice,
+      FaqSliceDefaultPrimary,
+      FaqSliceDefaultItem,
+      FaqSliceVariation,
+      FaqSliceDefault,
+      MoreDetailsSlice,
+      MoreDetailsSliceDefaultPrimary,
+      MoreDetailsSliceDefaultItem,
+      MoreDetailsSliceVariation,
+      MoreDetailsSliceDefault,
     }
   }
 }

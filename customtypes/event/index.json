@@ -1,0 +1,147 @@
+{
+  "id": "event",
+  "label": "Event",
+  "format": "custom",
+  "repeatable": true,
+  "status": true,
+  "json": {
+    "Main": {
+      "uid": {
+        "config": {
+          "label": "UID"
+        },
+        "type": "UID"
+      },
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading3"
+        }
+      },
+      "description": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Description",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong,em"
+        }
+      },
+      "image": {
+        "type": "Image",
+        "config": {
+          "label": "Image",
+          "constraint": {},
+          "thumbnails": []
+        }
+      },
+      "time": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Time",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "address": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Address",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,list-item,o-list-item,strong,em"
+        }
+      },
+      "conductor": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Conductor",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph"
+        }
+      },
+      "facebook_event": {
+        "type": "Link",
+        "config": {
+          "label": "Facebook Event",
+          "placeholder": "",
+          "allowTargetBlank": false,
+          "select": null
+        }
+      },
+      "program_link": {
+        "type": "Link",
+        "config": {
+          "label": "Program Link",
+          "placeholder": "",
+          "select": "media"
+        }
+      },
+      "video_link": {
+        "type": "Link",
+        "config": {
+          "label": "Video Link",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "select": null
+        }
+      },
+      "video_embed": {
+        "type": "Embed",
+        "config": {
+          "label": "Video Embed",
+          "placeholder": ""
+        }
+      },
+      "archive": {
+        "type": "Boolean",
+        "config": {
+          "label": "Archive",
+          "default_value": false,
+          "placeholder_true": "true",
+          "placeholder_false": "false"
+        }
+      },
+      "video_iframe": {
+        "type": "Text",
+        "config": {
+          "label": "Video Iframe",
+          "placeholder": ""
+        }
+      },
+      "date": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Date",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "paragraph,strong"
+        }
+      },
+      "location_link": {
+        "type": "Link",
+        "config": {
+          "label": "Location Link",
+          "placeholder": "",
+          "select": null
+        }
+      },
+      "slices": {
+        "type": "Slices",
+        "fieldset": "Slice Zone",
+        "config": {
+          "choices": {
+            "event": {
+              "type": "SharedSlice"
+            }
+          }
+        }
+      }
+    }
+  }
+}

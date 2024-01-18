@@ -9,70 +9,34 @@ import logoStaticKit from '@/images/logos/statickit.svg'
 import logoTransistor from '@/images/logos/transistor.svg'
 import logoTuple from '@/images/logos/tuple.svg'
 import fullBand from '@/images/full-band.jpeg'
+import EventLarge from './EventLarge'
 
 export function Hero() {
   return (
-    <Container className="pb-16 pt-20 text-center lg:pt-32">
-      <h1 className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
+    <Container className="text-center md:my-16 lg:pt-32">
+      {/* <span className="mx-auto max-w-4xl font-display text-5xl font-medium tracking-tight text-slate-900 sm:text-7xl">
         Oconee Winds
+      </span> */}
+      <h1 className="mx-auto max-w-2xl font-display text-[1.7rem] tracking-tight text-slate-700 md:mt-16 md:text-5xl lg:text-5xl xl:max-w-none xl:text-6xl">
+        Community wind orchestra <br />
+        Oconee, South Carolina
       </h1>
-      <p className="mx-auto mt-6 max-w-2xl text-lg tracking-tight text-slate-700">
-        Oconee Winds is an all-ages community wind orchestra in Oconee, South
-        Carolina.
-      </p>
-      <div className="mt-10 flex justify-center gap-x-6">
-        <Button href="/register">Upcomming Events</Button>
-        <Button href="/members" variant="outline">
-          <span className="ml-3">Members</span>
+      <div className="mt-10 flex justify-center gap-x-6 md:mt-14">
+        <Button className="w-40" href="/register">
+          Concert Archive
+        </Button>
+        <Button className="w-40" href="/members" variant="outline">
+          <span className="">Membership</span>
         </Button>
       </div>
-      <div className="relative mt-10 flex justify-center ">
+      <div className="relative mt-10 h-56 md:mx-0 md:mt-16 md:h-96 lg:h-[500px]">
         <Image
-          src={fullBand}
+          src="/oconeewinds-fullband.jpeg"
           alt="Photo of the full band"
-          sizes="100vw"
-          // Make the image display full width
-          style={{
-            width: '100%',
-            height: 'auto',
-          }}
+          className=" object-cover"
+          fill
+          priority
         />
-      </div>
-
-      <div className="mt-36 lg:mt-44">
-        <p className="font-display text-xl font-bold text-slate-900">
-          Upcomming Events
-        </p>
-        <ul
-          role="list"
-          className="mt-8 flex items-center justify-center gap-x-8 sm:flex-col sm:gap-x-0 sm:gap-y-10 xl:flex-row xl:gap-x-12 xl:gap-y-0"
-        >
-          {[
-            [
-              { name: 'Christmas Concert', logo: logoTransistor },
-              { name: 'Spring Concert', logo: logoTuple },
-              { name: 'Summer Camp', logo: logoStaticKit },
-            ],
-          ].map((group, groupIndex) => (
-            <li key={groupIndex}>
-              <ul
-                role="list"
-                className="flex flex-col items-center gap-y-8 sm:flex-row sm:gap-x-12 sm:gap-y-0"
-              >
-                {group.map((concerts) => (
-                  <li key={concerts.name} className="flex">
-                    {/* <Image
-                      src={concerts.name}
-                      alt={concerts.name}
-                      unoptimized
-                    /> */}
-                    <span>{concerts.name}</span>
-                  </li>
-                ))}
-              </ul>
-            </li>
-          ))}
-        </ul>
       </div>
     </Container>
   )

@@ -7,8 +7,11 @@ import clsx from 'clsx'
 
 import { Button } from '@/components/Button'
 import { Container } from '@/components/Container'
-import { Logo } from '@/components/Logo'
+
 import { NavLink } from '@/components/NavLink'
+import { dancingScript } from '@/utils/fonts'
+import Image from 'next/image'
+import Logo from './Logo'
 
 function MobileNavLink({
   href,
@@ -91,7 +94,7 @@ function MobileNavigation() {
           >
             {/* Links  to About, Concerts, Members, Camp, Donate */}
             <MobileNavLink href="#features">About</MobileNavLink>
-            <MobileNavLink href="#testimonials">Concerts</MobileNavLink>
+            <MobileNavLink href="/archive">Archive</MobileNavLink>
             <MobileNavLink href="#pricing">Members</MobileNavLink>
             <MobileNavLink href="#pricing">Camp</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
@@ -108,15 +111,19 @@ export function Header() {
     <header className="py-10">
       <Container>
         <nav className="relative z-50 flex justify-between">
-          <div className="flex items-center md:gap-x-12">
-            <Link href="#" aria-label="Home">
-              {/* <Logo className="h-10 w-auto" /> */}
-              <span className="text-xl font-bold">Logo</span>
+          <div className=" flex items-center md:gap-x-12">
+            <Link href="/" aria-label="Home" className=" text-xl font-bold">
+              <div className=" flex items-center justify-between gap-3 text-4xl">
+                <Logo className="h-32 w-auto lg:h-48" />
+
+                <span className={dancingScript.className}>Oconee Winds</span>
+              </div>
             </Link>
+
             <div className="hidden md:flex md:gap-x-6">
               {/* Links  to About, Concerts, Members, Camp, Donate */}
               <NavLink href="#features">About</NavLink>
-              <NavLink href="#testimonials">Concerts</NavLink>
+              <NavLink href="/archive">Archive</NavLink>
               <NavLink href="#pricing">Members</NavLink>
               <NavLink href="#pricing">Camp</NavLink>
             </div>

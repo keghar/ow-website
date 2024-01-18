@@ -1,0 +1,54 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Indeed"
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"question",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Sint sunt mollit consequat occaecat in id esse irure ea eu in magna labore sunt amet."
+									}
+								}
+							]
+						}
+					],
+					[
+						"answer",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Nulla in reprehenderit mollit. In ut non anim in officia nulla quis cupidatat mollit sit do amet laboris et. Labore quis veniam duis Lorem esse commodo occaecat aliqua excepteur incididunt amet sint esse laborum."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]

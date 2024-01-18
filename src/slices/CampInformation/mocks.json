@@ -1,0 +1,109 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Tribe"
+						}
+					}
+				]
+			},
+			"date": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Enim magna eiusmod dolor exercitation aliquip officia."
+						}
+					}
+				]
+			},
+			"deadline": {
+				"__TYPE__": "FieldContent",
+				"type": "Date",
+				"value": "2016-01-14"
+			},
+			"location": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Cillum proident est pariatur officia minim non consectetur fugiat fugiat adipisicing quis deserunt eiusmod amet nulla. Velit sit ut sint nisi nisi exercitation pariatur commodo pariatur laborum aliquip cillum proident."
+						}
+					}
+				]
+			},
+			"cost": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Commodo quis tempor officia pariatur exercitation esse adipisicing commodo. Veniam magna sint id reprehenderit."
+						}
+					}
+				]
+			},
+			"staff": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Ullamco enim fugiat pariatur esse eiusmod anim nisi adipisicing eu ut ea laboris id. Adipisicing minim veniam velit aliquip officia in. Proident elit mollit magna voluptate deserunt ea ipsum laborum."
+						}
+					}
+				]
+			},
+			"who_can_attend": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Tempor et incididunt ad esse elit minim cillum qui non culpa ut excepteur veniam qui dolore. Eu cupidatat occaecat enim non irure incididunt in anim. Voluptate ea nulla magna elit id nostrud pariatur magna excepteur duis et occaecat."
+						}
+					}
+				]
+			},
+			"acceptance_date": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit sit officia officia velit aliqua dolore est dolore consequat irure consequat veniam proident officia mollit. Sint veniam ea officia ipsum velit ea enim elit aliqua ad elit dolor ullamco."
+						}
+					}
+				]
+			},
+			"registration_form": {
+				"__TYPE__": "LinkContent",
+				"value": {
+					"__TYPE__": "ExternalLink",
+					"url": "https://slicemachine.dev"
+				}
+			},
+			"deadline_info": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Aliquip eu officia esse reprehenderit culpa sit. Eu et nisi est do cupidatat voluptate. Tempor labore cillum aliquip."
+						}
+					}
+				]
+			}
+		},
+		"items": []
+	}
+]

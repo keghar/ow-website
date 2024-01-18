@@ -1,0 +1,65 @@
+[
+	{
+		"__TYPE__": "SharedSliceContent",
+		"variation": "default",
+		"primary": {
+			"title": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "heading2",
+						"content": {
+							"text": "Wherever"
+						}
+					}
+				]
+			},
+			"description": {
+				"__TYPE__": "StructuredTextContent",
+				"value": [
+					{
+						"type": "paragraph",
+						"content": {
+							"text": "Reprehenderit ex officia et nisi reprehenderit nostrud eu voluptate laboris. Amet laboris ex consectetur exercitation proident cillum do commodo. Eu deserunt nostrud dolor consectetur mollit laboris fugiat magna qui id esse nulla laboris."
+						}
+					}
+				]
+			}
+		},
+		"items": [
+			{
+				"__TYPE__": "GroupItemContent",
+				"value": [
+					[
+						"subtitle_1",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "heading3",
+									"content": {
+										"text": "Rough"
+									}
+								}
+							]
+						}
+					],
+					[
+						"paragraph",
+						{
+							"__TYPE__": "StructuredTextContent",
+							"value": [
+								{
+									"type": "paragraph",
+									"content": {
+										"text": "Nulla commodo exercitation excepteur est labore incididunt."
+									}
+								}
+							]
+						}
+					]
+				]
+			}
+		]
+	}
+]
