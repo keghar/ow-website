@@ -1,6 +1,6 @@
 import { JSX, SVGProps } from 'react'
 
-const SVGComponent = (props: SVGProps<SVGSVGElement>) => (
+const Logo = (props: SVGProps<SVGSVGElement>) => (
   <svg
     width="32.716591mm"
     height="93.482002mm"
@@ -156,4 +156,4 @@ const SVGComponent = (props: SVGProps<SVGSVGElement>) => (
   </svg>
 )
 
-export default SVGComponent
+export default Logo
