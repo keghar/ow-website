@@ -58,7 +58,7 @@ export default function RootLayout({
       lang="en"
       className={clsx(
         'h-full scroll-smooth bg-white antialiased',
-        inter.variable,
+        inter.className,
         lexend.variable,
         dancingScript.variable,
       )}

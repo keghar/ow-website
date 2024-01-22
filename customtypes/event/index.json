@@ -114,21 +114,19 @@
           "placeholder": ""
         }
       },
-      "date": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Date",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "paragraph,strong"
-        }
-      },
       "location_link": {
         "type": "Link",
         "config": {
           "label": "Location Link",
           "placeholder": "",
           "select": null
+        }
+      },
+      "date": {
+        "type": "Date",
+        "config": {
+          "label": "Date",
+          "placeholder": ""
         }
       },
       "slices": {

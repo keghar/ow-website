@@ -10,7 +10,7 @@ import { data } from 'autoprefixer'
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <h2 className="mb-4 mt-12 text-center text-2xl font-semibold md:mb-8">
+    <h2 className=" text-center text-2xl font-semibold text-slate-700">
       {children}
     </h2>
   ),
@@ -46,7 +46,11 @@ const CampInformation = ({ slice }: CampInformationProps): JSX.Element => {
           field={slice.primary.location}
           components={components}
         />
-        ;<PrismicRichText field={slice.primary.deadline_info} />
+        ;
+        <PrismicRichText
+          field={slice.primary.deadline_info}
+          components={components}
+        />
         <PrismicRichText field={slice.primary.cost} components={components} />
         <PrismicRichText field={slice.primary.staff} components={components} />
         <PrismicRichText

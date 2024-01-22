@@ -1,24 +1,24 @@
 import { createClient } from '@/prismicio'
 import * as prismic from '@prismicio/client'
-import { serialize } from '@prismicio/client/richtext'
 import { PrismicNextImage, PrismicNextLink } from '@prismicio/next'
-import {
-  JSXMapSerializer,
-  PrismicRichText,
-  PrismicText,
-  SliceZone,
-} from '@prismicio/react'
+import { JSXMapSerializer, PrismicRichText } from '@prismicio/react'
 import { Button } from './Button'
-import Link from 'next/link'
+
+const dateFormatter = new Intl.DateTimeFormat('en-US', {
+  weekday: 'long',
+  month: 'long',
+  day: 'numeric',
+  year: 'numeric',
+})
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <h3 className="text-2xl text-slate-600 md:text-3xl lg:text-4xl xl:text-5xl ">
+    <h3 className="text-2xl text-slate-700 md:text-3xl lg:text-4xl xl:text-5xl ">
       {children}
     </h3>
   ),
   paragraph: ({ children }) => (
-    <p className="font-body mx-6 max-w-prose text-justify text-base font-medium tracking-tight text-slate-600 md:mx-0 md:mr-3 md:text-lg lg:text-xl xl:text-2xl ">
+    <p className="font-body max-w-prose text-justify text-base font-normal leading-tight text-slate-700 md:text-lg lg:text-xl xl:text-2xl ">
       {children}
     </p>
   ),
@@ -35,41 +35,34 @@ export default async function EventLarge() {
         direction: 'asc',
       },
     ],
-    limit: 3,
+    limit: 2,
   })
 
+  const date = prismic.asDate(events[0].data.date)
+
   return (
-    <div className=" mx-auto px-4 pb-20 md:px-10 xl:max-w-screen-2xl ">
-      <div className="mt-20 lg:my-20">
-        <h2 className=" bg-gradient-to-b from-slate-800 via-sky-600  to-slate-700 bg-clip-text py-6 text-center font-display text-3xl font-semibold text-transparent md:text-4xl xl:text-6xl">
+    <div className="px-4 pb-20 xl:max-w-screen-2xl ">
+      <div className="mb-10 mt-20">
+        <h2 className="bg-gradient-to-b from-slate-800 via-[#0e57afE6] to-slate-800 bg-clip-text text-center font-display text-3xl tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
           Upcoming Events
         </h2>
       </div>
       {/* Events */}
-      <ul className=" mx-auto flex w-full flex-col items-center justify-center gap-y-16 xl:my-3">
+      <ul className=" flex w-full flex-col items-center justify-center gap-y-16 xl:my-3">
         {events.map((event) => (
-          <li key={event.uid} className="w-full">
-            <div className=" flex h-full w-full flex-col justify-center rounded-xl border border-slate-300 bg-slate-200 pb-10 shadow-2xl shadow-slate-400 ">
-              <div className="mx-auto my-6 flex flex-col justify-center">
+          <li key={event.uid} className="">
+            <div className=" flex w-screen flex-col justify-center border border-slate-300 bg-slate-200 px-2 py-10 shadow-2xl shadow-slate-400 lg:rounded-xl xl:px-10  2xl:px-20">
+              <div className="mx-auto mb-3 flex flex-col justify-center md:mb-12">
                 <PrismicRichText
                   field={event.data.title}
                   components={components}
                 />
                 <div className="mx-auto">
-                  <PrismicRichText
-                    field={event.data.date}
-                    components={{
-                      paragraph: ({ children }) => (
-                        <p className="font-body text-justify text-base   text-slate-600 md:mx-0 md:text-xl lg:text-2xl">
-                          {children}
-                        </p>
-                      ),
-                    }}
-                  />
+                  {date ? dateFormatter.format(date) : 'No date'}
                 </div>
               </div>
-              <div className="gap flex flex-col items-center gap-x-3 md:flex-row lg:mx-auto lg:justify-center lg:px-4 xl:px-8">
-                <div className=" px-3 md:ml-3 md:basis-1/2 lg:flex lg:justify-center">
+              <div className="flex flex-col items-center gap-x-2 px-3 md:flex-row lg:mx-auto lg:max-w-screen-lg lg:px-10">
+                <div className=" md:basis-1/2">
                   <PrismicNextImage
                     field={event.data.image}
                     height={650}
@@ -77,8 +70,8 @@ export default async function EventLarge() {
                     imgixParams={{ fit: 'clip' }}
                   />
                 </div>
-                <div className="flex flex-col md:basis-1/2 lg:mx-auto lg:justify-center">
-                  <div className="mb-4 mt-6">
+                <div className="my-auto mt-6 flex flex-col md:mt-0 md:basis-1/2 lg:mx-auto lg:justify-center">
+                  <div className="mb-4">
                     <PrismicRichText
                       field={event.data.description}
                       components={components}

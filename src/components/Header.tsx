@@ -95,8 +95,8 @@ function MobileNavigation() {
             {/* Links  to About, Concerts, Members, Camp, Donate */}
             <MobileNavLink href="#features">About</MobileNavLink>
             <MobileNavLink href="/archive">Archive</MobileNavLink>
-            <MobileNavLink href="#pricing">Members</MobileNavLink>
-            <MobileNavLink href="#pricing">Camp</MobileNavLink>
+            <MobileNavLink href="/membership">Membership</MobileNavLink>
+            <MobileNavLink href="/camp">Camp</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
             <MobileNavLink href="/">Donate</MobileNavLink>
           </Popover.Panel>
@@ -108,24 +108,24 @@ function MobileNavigation() {
 
 export function Header() {
   return (
-    <header className="py-10">
+    <header className="pb-10 pt-4">
       <Container>
         <nav className="relative z-50 flex justify-between">
           <div className=" flex items-center md:gap-x-12">
             <Link href="/" aria-label="Home" className=" text-xl font-bold">
-              <div className=" flex items-center justify-between gap-3 text-4xl">
+              <div className=" flex w-full items-center justify-between gap-3 text-4xl">
                 <Logo className="h-32 w-auto lg:h-48" />
 
                 <span className={dancingScript.className}>Oconee Winds</span>
               </div>
             </Link>
 
-            <div className="hidden md:flex md:gap-x-6">
+            <div className="hidden md:flex md:gap-x-4">
               {/* Links  to About, Concerts, Members, Camp, Donate */}
               <NavLink href="#features">About</NavLink>
               <NavLink href="/archive">Archive</NavLink>
-              <NavLink href="#pricing">Members</NavLink>
-              <NavLink href="#pricing">Camp</NavLink>
+              <NavLink href="/membership">Membership</NavLink>
+              <NavLink href="/camp">Camp</NavLink>
             </div>
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">

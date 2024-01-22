@@ -220,17 +220,6 @@ interface EventDocumentData {
   video_iframe: prismic.KeyTextField
 
   /**
-   * Date field in *Event*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.date
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  date: prismic.RichTextField
-
-  /**
    * Location Link field in *Event*
    *
    * - **Field Type**: Link
@@ -240,6 +229,17 @@ interface EventDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   location_link: prismic.LinkField
+
+  /**
+   * Date field in *Event*
+   *
+   * - **Field Type**: Date
+   * - **Placeholder**: *None*
+   * - **API ID Path**: event.date
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#date
+   */
+  date: prismic.DateField
 
   /**
    * Slice Zone field in *Event*

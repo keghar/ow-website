@@ -11,11 +11,12 @@ export function Footer() {
       <Container>
         <div className="flex flex-col py-16">
           <nav className="mb-10 text-sm" aria-label="quick links">
-            <div className="-my-1 flex justify-center gap-x-6">
+            <div className=" flex justify-center gap-x-4 md:gap-x-6">
               <NavLink href="#features">About</NavLink>
               <NavLink href="/archive">Archive</NavLink>
-              <NavLink href="#testimonials">Memebership</NavLink>
-              <NavLink href="#pricing">Camp</NavLink>
+              <NavLink href="/membership">Membership</NavLink>
+              <NavLink href="/camp">Camp</NavLink>
+              <NavLink href="/">Donate</NavLink>
             </div>
           </nav>
           <div className="z-50 flex flex-col items-center justify-center text-6xl font-semibold tracking-wide ">
@@ -26,11 +27,11 @@ export function Footer() {
         <div className="flex flex-col items-center border-t border-slate-400/10 pb-10 sm:flex-row-reverse sm:justify-between">
           <div className="flex gap-x-6">
             <Link
-              href="https://twitter.com"
-              className="group"
+              href="youtube.com"
+              className="group font-bold"
               aria-label="Oconee Winds on Twitter"
             >
-              Twitter
+              Youtube
             </Link>
             <Link
               href="facebook.com"

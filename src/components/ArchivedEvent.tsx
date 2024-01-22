@@ -9,13 +9,14 @@ import {
   SliceZone,
 } from '@prismicio/react'
 import { Container } from './Container'
+import { Button } from './Button'
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <h3 className="text-center text-lg font-bold">{children}</h3>
+    <h2 className="text-center text-xl font-bold text-slate-600">{children}</h2>
   ),
   paragraph: ({ children }) => (
-    <p className="font-body max-w-sm break-words text-center text-sm font-medium text-slate-600 md:text-base">
+    <p className="font-body my-auto max-h-14 max-w-sm overflow-scroll break-words px-2 text-center text-sm font-medium text-slate-600 md:text-base">
       {children}
     </p>
   ),
@@ -37,52 +38,58 @@ export default async function EventLarge() {
 
   return (
     <Container>
-      <h2 className="tex-center mb-10 flex flex-col text-center text-2xl font-bold">
-        <span>Event Archive</span>{' '}
-        <span className="text-center text-base font-normal">
-          Check out our past events
-        </span>
-      </h2>
+      <h1 className=" mb-14 flex flex-col text-center text-2xl">
+        <span className=" bg-gradient-to-b from-slate-700 via-[#0e57afE6] to-slate-700 bg-clip-text text-center font-display text-3xl tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
+          Event Archive
+        </span>{' '}
+      </h1>
 
-      <ul className=" mb-10 grid grid-cols-1 gap-y-4 md:grid-cols-2 lg:grid-cols-3">
+      <ul className=" mb-10 grid grid-cols-1 place-content-center gap-7 md:grid-cols-2 xl:grid-cols-3 xl:gap-10">
         {events.map((event) => (
           <li key={event.uid}>
-            <div className=" flex items-center justify-center">
+            <div className=" flex items-center justify-center rounded-xl border border-slate-300 bg-slate-100 p-4 shadow-lg shadow-gray-400 xl:p-10">
               {/* <PrismicNextImage field={event.data.image} height={300} /> */}
-              <div className="mx-auto flex flex-col justify-center">
+              <div className="mx-auto flex flex-col justify-center gap-4">
                 <PrismicRichText
                   field={event.data.title}
                   components={components}
                 />
-                <div
-                  className=""
-                  dangerouslySetInnerHTML={{
-                    __html: event.data.video_iframe || ' ',
-                  }}
-                />
-
                 <PrismicRichText
                   field={event.data.description}
-                  components={components}
+                  components={{
+                    paragraph: ({ children }) => (
+                      <p className="font-body my-auto h-14 max-h-14 max-w-sm overflow-scroll break-words px-2 text-center text-sm font-medium text-slate-600 md:text-base">
+                        {children}
+                      </p>
+                    ),
+                  }}
                 />
-
                 <div className="flex items-center justify-center gap-x-2">
-                  <span className="text-sm">Conductor: </span>
+                  <span className="font-body max-w-sm break-words text-center text-sm font-medium text-slate-600 md:text-base">
+                    Conductor:{' '}
+                  </span>
                   <PrismicRichText
                     field={event.data.conductor}
                     components={components}
                   />
                 </div>
 
+                <div
+                  className="mx-auto"
+                  dangerouslySetInnerHTML={{
+                    __html: event.data.video_iframe || ' ',
+                  }}
+                />
+
                 <div className="my-2 flex justify-center">
-                  <div className="rounded-xl border-2 border-black p-2">
+                  <Button className="w-36">
                     <PrismicNextLink
                       field={event.data.program_link}
                       className=""
                     >
                       Program
                     </PrismicNextLink>
-                  </div>
+                  </Button>
                 </div>
               </div>
             </div>

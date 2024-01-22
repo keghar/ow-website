@@ -4,15 +4,18 @@ import { SliceZone } from '@prismicio/react'
 import { createClient } from '@/prismicio'
 import { components } from '@/slices'
 import ArchivedEvent from '@/components/ArchivedEvent'
+import { CallToAction } from '@/components/CallToAction'
 
 export default async function Page() {
   const client = createClient()
 
   return (
-    <section>
-      <div>
+    <main>
+      <section>
         <ArchivedEvent />
-      </div>
-    </section>
+      </section>
+
+      <CallToAction />
+    </main>
   )
 }

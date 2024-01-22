@@ -6,7 +6,7 @@ import { components } from '@/slices'
 
 const serializer: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <h1 className="mb-4 mt-12 text-center text-5xl font-bold md:mb-8">
+    <h1 className="bg-gradient-to-b from-slate-700 via-[#0e57afE6] to-slate-700 bg-clip-text text-center font-display text-3xl tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
       {children}
     </h1>
   ),
@@ -24,7 +24,12 @@ export default async function Page() {
   return (
     <section>
       <Container className="flex flex-col justify-center">
-        <PrismicRichText field={page.data.page_title} components={serializer} />
+        <div className="mx-auto mb-20 mt-10">
+          <PrismicRichText
+            field={page.data.page_title}
+            components={serializer}
+          />
+        </div>
         <SliceZone slices={page.data.slices} components={components} />
       </Container>
     </section>
