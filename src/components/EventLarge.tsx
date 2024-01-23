@@ -46,7 +46,7 @@ export default async function EventLarge() {
         </h2>
       </div>
       {/* Events */}
-      <ul className=" flex w-full flex-col items-center justify-center gap-y-16">
+      <ul className=" flex w-full flex-col items-center justify-center">
         {events.map((event) => (
           <li key={event.uid} className="">
             <div className=" flex w-screen flex-col justify-center border border-slate-300 bg-slate-200 px-2 py-10 xl:px-10  2xl:px-20">
