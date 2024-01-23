@@ -11,8 +11,7 @@ export function Footer() {
       <Container>
         <div className="flex flex-col py-16">
           <nav className="mb-10 text-sm" aria-label="quick links">
-            <div className=" flex justify-center gap-x-4 md:gap-x-6">
-              <NavLink href="#features">About</NavLink>
+            <div className=" flex justify-center gap-x-2 md:gap-x-6">
               <NavLink href="/archive">Archive</NavLink>
               <NavLink href="/membership">Membership</NavLink>
               <NavLink href="/camp">Camp</NavLink>

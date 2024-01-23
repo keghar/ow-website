@@ -63,7 +63,7 @@ export default function RootLayout({
         dancingScript.variable,
       )}
     >
-      <body className="flex h-full flex-col">
+      <body className="flex h-full flex-col overflow-x-hidden">
         <Header />
         {children}
         <Footer />

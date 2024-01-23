@@ -41,9 +41,9 @@ export default async function EventLarge() {
   const date = prismic.asDate(events[0].data.date)
 
   return (
-    <div className="px-4 pb-20 xl:max-w-screen-2xl ">
+    <div className="px-4 pb-20 ">
       <div className="mb-10 mt-20">
-        <h2 className="bg-gradient-to-b from-slate-800 via-[#0e57afE6] to-slate-800 bg-clip-text text-center font-display text-3xl tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
+        <h2 className="bg-gradient-to-b from-slate-800 via-[#0e57afE6] to-slate-800 bg-clip-text p-2 text-center font-display text-3xl tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
           Upcoming Events
         </h2>
       </div>
@@ -51,7 +51,7 @@ export default async function EventLarge() {
       <ul className=" flex w-full flex-col items-center justify-center gap-y-16 xl:my-3">
         {events.map((event) => (
           <li key={event.uid} className="">
-            <div className=" flex w-screen flex-col justify-center border border-slate-300 bg-slate-200 px-2 py-10 shadow-2xl shadow-slate-400 lg:rounded-xl xl:px-10  2xl:px-20">
+            <div className=" flex w-screen flex-col justify-center border border-slate-300 bg-slate-200 px-2 py-10 xl:px-10  2xl:px-20">
               <div className="mx-auto mb-3 flex flex-col justify-center md:mb-12">
                 <PrismicRichText
                   field={event.data.title}

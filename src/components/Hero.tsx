@@ -21,7 +21,7 @@ export function Hero() {
           <span className="">Membership</span>
         </Button>
       </div>
-      <div className="relative mt-10 h-56 md:mx-0 md:mt-16 md:h-96 lg:h-[500px]">
+      <div className="relative mt-10 flex h-56 justify-center md:mx-0 md:mt-16 md:h-96 lg:h-[500px]">
         <Image
           src="/oconeewinds-fullband.jpeg"
           alt="Photo of the full band"

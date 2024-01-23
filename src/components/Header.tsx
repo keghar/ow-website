@@ -111,9 +111,9 @@ export function Header() {
     <header className="pb-10 pt-4">
       <Container>
         <nav className="relative z-50 flex justify-between">
-          <div className=" flex items-center md:gap-x-12">
+          <div className=" lg:gap-x-18 flex items-center md:gap-x-8 lg:gap-x-20 xl:gap-x-28 2xl:gap-x-40">
             <Link href="/" aria-label="Home" className=" text-xl font-bold">
-              <div className=" flex w-full items-center justify-between gap-3 text-4xl">
+              <div className=" flex w-full items-center justify-between gap-3 text-4xl text-slate-700">
                 <Logo className="h-32 w-auto lg:h-48" />
 
                 <span className={dancingScript.className}>Oconee Winds</span>
@@ -130,7 +130,9 @@ export function Header() {
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              <NavLink href="/login">Donate</NavLink>
+              <Button className="w-24 lg:w-32" href="https://paypal.com">
+                Donate
+              </Button>
             </div>
 
             <div className="-mr-1 md:hidden">

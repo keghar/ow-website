@@ -6,7 +6,7 @@ import { components } from '@/slices'
 
 const serializer: JSXMapSerializer = {
   heading1: ({ children }) => (
-    <h1 className="bg-gradient-to-b from-slate-700 via-[#0e57afE6] to-slate-700 bg-clip-text text-center font-display text-3xl tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
+    <h1 className="bg-gradient-to-b from-slate-800 via-[#0e57afE6] to-slate-800 bg-clip-text text-center font-display text-3xl font-semibold tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
       {children}
     </h1>
   ),
