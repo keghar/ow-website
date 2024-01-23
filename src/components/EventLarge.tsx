@@ -38,17 +38,15 @@ export default async function EventLarge() {
     limit: 2,
   })
 
-  const date = prismic.asDate(events[0].data.date)
-
   return (
-    <div className="px-4 pb-20 ">
+    <div className="px-4  ">
       <div className="mb-10 mt-20">
         <h2 className="bg-gradient-to-b from-slate-800 via-[#0e57afE6] to-slate-800 bg-clip-text p-2 text-center font-display text-3xl tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
           Upcoming Events
         </h2>
       </div>
       {/* Events */}
-      <ul className=" flex w-full flex-col items-center justify-center gap-y-16 xl:my-3">
+      <ul className=" flex w-full flex-col items-center justify-center gap-y-16">
         {events.map((event) => (
           <li key={event.uid} className="">
             <div className=" flex w-screen flex-col justify-center border border-slate-300 bg-slate-200 px-2 py-10 xl:px-10  2xl:px-20">
@@ -58,7 +56,9 @@ export default async function EventLarge() {
                   components={components}
                 />
                 <div className="mx-auto">
-                  {date ? dateFormatter.format(date) : 'No date'}
+                  {event.data.date
+                    ? dateFormatter.format(new Date(event.data.date))
+                    : 'Coming Soon'}
                 </div>
               </div>
               <div className="flex flex-col items-center gap-x-2 px-3 md:flex-row lg:mx-auto lg:max-w-screen-lg lg:px-10">
