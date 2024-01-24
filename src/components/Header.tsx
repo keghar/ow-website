@@ -93,7 +93,7 @@ function MobileNavigation() {
             className="absolute inset-x-0 top-full mt-4 flex origin-top flex-col rounded-2xl bg-white p-4 text-lg tracking-tight text-slate-900 shadow-xl ring-1 ring-slate-900/5"
           >
             {/* Links  to About, Concerts, Members, Camp, Donate */}
-            <MobileNavLink href="#features">About</MobileNavLink>
+            <MobileNavLink href="/about">About</MobileNavLink>
             <MobileNavLink href="/archive">Archive</MobileNavLink>
             <MobileNavLink href="/membership">Membership</MobileNavLink>
             <MobileNavLink href="/camp">Camp</MobileNavLink>
@@ -122,7 +122,7 @@ export function Header() {
 
             <div className="hidden md:flex md:gap-x-4">
               {/* Links  to About, Concerts, Members, Camp, Donate */}
-              <NavLink href="#features">About</NavLink>
+              <NavLink href="/about">About</NavLink>
               <NavLink href="/archive">Archive</NavLink>
               <NavLink href="/membership">Membership</NavLink>
               <NavLink href="/camp">Camp</NavLink>

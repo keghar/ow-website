@@ -3,9 +3,12 @@
 import dynamic from 'next/dynamic'
 
 export const components = {
+  button: dynamic(() => import('./Button')),
   camp_information: dynamic(() => import('./CampInformation')),
   event: dynamic(() => import('./Events')),
   experience: dynamic(() => import('./Experience')),
   faq: dynamic(() => import('./Faq')),
+  history: dynamic(() => import('./History')),
+  images: dynamic(() => import('./Images')),
   more_details: dynamic(() => import('./MoreDetails')),
 }

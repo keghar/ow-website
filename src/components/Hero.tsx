@@ -14,10 +14,10 @@ export function Hero() {
         Oconee, South Carolina
       </h1>
       <div className="mt-10 flex justify-center gap-x-6 md:mt-14">
-        <Button className="w-40" href="/register">
+        <Button className="w-40" href="/archive">
           Concert Archive
         </Button>
-        <Button className="w-40" href="/members" variant="outline">
+        <Button className="w-40" href="/membership" variant="outline">
           <span className="">Membership</span>
         </Button>
       </div>

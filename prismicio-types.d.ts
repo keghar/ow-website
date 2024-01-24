@@ -4,6 +4,78 @@ import type * as prismic from '@prismicio/client'
 
 type Simplify<T> = { [KeyType in keyof T]: T[KeyType] }
 
+type AboutDocumentDataSlicesSlice = ButtonSlice | ImagesSlice | HistorySlice
+
+/**
+ * Content for About documents
+ */
+interface AboutDocumentData {
+  /**
+   * Title field in *About*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Slice Zone field in *About*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<AboutDocumentDataSlicesSlice> /**
+   * Meta Description field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: About Oconee Winds
+   * - **API ID Path**: about.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *About*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: about.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *About*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: about.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * About document from Prismic
+ *
+ * - **API ID**: `about`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type AboutDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<Simplify<AboutDocumentData>, 'about', Lang>
+
 type CampDocumentDataSlicesSlice =
   | FaqSlice
   | MoreDetailsSlice
@@ -265,49 +337,71 @@ interface EventDocumentData {
 export type EventDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<EventDocumentData>, 'event', Lang>
 
-type EventArchiveDocumentDataSlicesSlice = EventSlice
+type HomepageDocumentDataSlicesSlice = never
 
 /**
- * Content for Event Archive documents
+ * Content for Homepage documents
  */
-interface EventArchiveDocumentData {
+interface HomepageDocumentData {
   /**
-   * Slice Zone field in *Event Archive*
+   * Title field in *Homepage*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.RichTextField
+
+  /**
+   * Image field in *Homepage*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: homepage.image
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+
+  /**
+   * Slice Zone field in *Homepage*
    *
    * - **Field Type**: Slice Zone
    * - **Placeholder**: *None*
-   * - **API ID Path**: event_archive.slices[]
+   * - **API ID Path**: homepage.slices[]
    * - **Tab**: Main
    * - **Documentation**: https://prismic.io/docs/field#slices
    */
-  slices: prismic.SliceZone<EventArchiveDocumentDataSlicesSlice> /**
-   * Meta Description field in *Event Archive*
+  slices: prismic.SliceZone<HomepageDocumentDataSlicesSlice> /**
+   * Meta Description field in *Homepage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A brief summary of the page
-   * - **API ID Path**: event_archive.meta_description
+   * - **API ID Path**: homepage.meta_description
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
   meta_description: prismic.KeyTextField
 
   /**
-   * Meta Image field in *Event Archive*
+   * Meta Image field in *Homepage*
    *
    * - **Field Type**: Image
    * - **Placeholder**: *None*
-   * - **API ID Path**: event_archive.meta_image
+   * - **API ID Path**: homepage.meta_image
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#image
    */
   meta_image: prismic.ImageField<never>
 
   /**
-   * Meta Title field in *Event Archive*
+   * Meta Title field in *Homepage*
    *
    * - **Field Type**: Text
    * - **Placeholder**: A title of the page used for social media and search engines
-   * - **API ID Path**: event_archive.meta_title
+   * - **API ID Path**: homepage.meta_title
    * - **Tab**: SEO & Metadata
    * - **Documentation**: https://prismic.io/docs/field#key-text
    */
@@ -315,18 +409,18 @@ interface EventArchiveDocumentData {
 }
 
 /**
- * Event Archive document from Prismic
+ * Homepage document from Prismic
  *
- * - **API ID**: `event_archive`
+ * - **API ID**: `homepage`
  * - **Repeatable**: `false`
  * - **Documentation**: https://prismic.io/docs/custom-types
  *
  * @typeParam Lang - Language API ID of the document.
  */
-export type EventArchiveDocument<Lang extends string = string> =
+export type HomepageDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<
-    Simplify<EventArchiveDocumentData>,
-    'event_archive',
+    Simplify<HomepageDocumentData>,
+    'homepage',
     Lang
   >
 
@@ -421,10 +515,63 @@ export type SettingsDocument<Lang extends string = string> =
   >
 
 export type AllDocumentTypes =
+  | AboutDocument
   | CampDocument
   | EventDocument
-  | EventArchiveDocument
+  | HomepageDocument
   | SettingsDocument
+
+/**
+ * Primary content in *Button → Primary*
+ */
+export interface ButtonSliceDefaultPrimary {
+  /**
+   * Button Name field in *Button → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: button.primary.button_name
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button_name: prismic.KeyTextField
+
+  /**
+   * Button Link field in *Button → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: button.primary.button_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button_link: prismic.LinkField
+}
+
+/**
+ * Default variation for Button Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ButtonSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ButtonSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Button*
+ */
+type ButtonSliceVariation = ButtonSliceDefault
+
+/**
+ * Button Shared Slice
+ *
+ * - **API ID**: `button`
+ * - **Description**: Button
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ButtonSlice = prismic.SharedSlice<'button', ButtonSliceVariation>
 
 /**
  * Primary content in *CampInformation → Primary*
@@ -726,6 +873,115 @@ type FaqSliceVariation = FaqSliceDefault
 export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>
 
 /**
+ * Primary content in *History → Primary*
+ */
+export interface HistorySliceDefaultPrimary {
+  /**
+   * Title field in *History → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: history.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+
+  /**
+   * Body field in *History → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: history.primary.body
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  body: prismic.RichTextField
+}
+
+/**
+ * Default variation for History Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HistorySliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<HistorySliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *History*
+ */
+type HistorySliceVariation = HistorySliceDefault
+
+/**
+ * History Shared Slice
+ *
+ * - **API ID**: `history`
+ * - **Description**: History
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HistorySlice = prismic.SharedSlice<'history', HistorySliceVariation>
+
+/**
+ * Primary content in *Images → Primary*
+ */
+export interface ImagesSliceDefaultPrimary {
+  /**
+   * Title field in *Images → Primary*
+   *
+   * - **Field Type**: Title
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images.primary.title
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  title: prismic.TitleField
+}
+
+/**
+ * Primary content in *Images → Items*
+ */
+export interface ImagesSliceDefaultItem {
+  /**
+   * Image field in *Images → Items*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: images.items[].image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  image: prismic.ImageField<never>
+}
+
+/**
+ * Default variation for Images Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImagesSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<ImagesSliceDefaultPrimary>,
+  Simplify<ImagesSliceDefaultItem>
+>
+
+/**
+ * Slice variation for *Images*
+ */
+type ImagesSliceVariation = ImagesSliceDefault
+
+/**
+ * Images Shared Slice
+ *
+ * - **API ID**: `images`
+ * - **Description**: Images
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type ImagesSlice = prismic.SharedSlice<'images', ImagesSliceVariation>
+
+/**
  * Primary content in *MoreDetails → Primary*
  */
 export interface MoreDetailsSliceDefaultPrimary {
@@ -815,19 +1071,26 @@ declare module '@prismicio/client' {
 
   namespace Content {
     export type {
+      AboutDocument,
+      AboutDocumentData,
+      AboutDocumentDataSlicesSlice,
       CampDocument,
       CampDocumentData,
       CampDocumentDataSlicesSlice,
       EventDocument,
       EventDocumentData,
       EventDocumentDataSlicesSlice,
-      EventArchiveDocument,
-      EventArchiveDocumentData,
-      EventArchiveDocumentDataSlicesSlice,
+      HomepageDocument,
+      HomepageDocumentData,
+      HomepageDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       SettingsDocumentDataNavigationItem,
       AllDocumentTypes,
+      ButtonSlice,
+      ButtonSliceDefaultPrimary,
+      ButtonSliceVariation,
+      ButtonSliceDefault,
       CampInformationSlice,
       CampInformationSliceDefaultPrimary,
       CampInformationSliceVariation,
@@ -845,6 +1108,15 @@ declare module '@prismicio/client' {
       FaqSliceDefaultItem,
       FaqSliceVariation,
       FaqSliceDefault,
+      HistorySlice,
+      HistorySliceDefaultPrimary,
+      HistorySliceVariation,
+      HistorySliceDefault,
+      ImagesSlice,
+      ImagesSliceDefaultPrimary,
+      ImagesSliceDefaultItem,
+      ImagesSliceVariation,
+      ImagesSliceDefault,
       MoreDetailsSlice,
       MoreDetailsSliceDefaultPrimary,
       MoreDetailsSliceDefaultItem,

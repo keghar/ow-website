@@ -68,6 +68,7 @@ export function CallToAction() {
               </label>
               <div className="mt-2">
                 <input
+                  id="email"
                   value={input}
                   onChange={(e) => setInput(e.target.value)}
                   required

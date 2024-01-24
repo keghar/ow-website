@@ -1,17 +1,32 @@
 {
-  "id": "event_archive",
-  "label": "Event Archive",
+  "id": "about",
+  "label": "About",
   "format": "page",
   "repeatable": false,
   "status": true,
   "json": {
     "Main": {
+      "title": {
+        "type": "StructuredText",
+        "config": {
+          "label": "Title",
+          "placeholder": "",
+          "allowTargetBlank": true,
+          "single": "heading1"
+        }
+      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
           "choices": {
-            "event": {
+            "button": {
+              "type": "SharedSlice"
+            },
+            "images": {
+              "type": "SharedSlice"
+            },
+            "history": {
               "type": "SharedSlice"
             }
           }
@@ -22,7 +37,7 @@
       "meta_description": {
         "config": {
           "label": "Meta Description",
-          "placeholder": "A brief summary of the page"
+          "placeholder": "About Oconee Winds"
         },
         "type": "Text"
       },
