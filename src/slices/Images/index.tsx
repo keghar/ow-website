@@ -38,6 +38,7 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
 
   return (
     <div
+      onClick={onClose}
       style={{
         position: 'fixed',
         top: 0,
@@ -84,11 +85,11 @@ const Modal: React.FC<ModalProps> = ({ isOpen, onClose, children }) => {
  */
 const Images = ({ slice }: ImagesProps): JSX.Element => {
   const [isOpen, setIsOpen] = useState(false)
-  const [selectedImage, setSelectedImage] = useState('')
+  const [selectedImage, setSelectedImage] = useState({})
 
-  const openModal = (image: string) => {
+  const openModal = (image: object) => {
     setIsOpen(true)
-    setSelectedImage(image)
+    setSelectedImage(image as object)
   }
 
   const closeModal = () => {
@@ -106,18 +107,22 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
         <PrismicRichText field={slice.primary.title} components={components} />
       </div>
 
-      <div className="grid grid-cols-1 justify-center justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
+      <div className="grid w-full grid-cols-1 place-items-center justify-center justify-items-center gap-4 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {slice.items.map((item, index) => (
-          <div onClick={() => openModal(item.image)} key={index} className="">
+          //@ts-ignore
+          <div
+            onClick={() => openModal(item.image as {})}
+            key={index}
+            className="w-full"
+          >
             <PrismicNextImage field={item.image} height={200} width={200} />
           </div>
         ))}
       </div>
       <Modal isOpen={isOpen} onClose={closeModal}>
         {selectedImage && (
-          <PrismicNextImage
-            field={selectedImage as ImageFieldImage | null | undefined}
-          />
+          //@ts-ignore
+          <PrismicNextImage field={selectedImage as object | null} />
         )}
       </Modal>
     </Container>
