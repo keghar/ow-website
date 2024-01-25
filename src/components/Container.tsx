@@ -7,7 +7,7 @@ export function Container({
   return (
     <div
       className={clsx(
-        ' mx-auto max-w-screen-2xl px-4 sm:px-6 lg:px-8',
+        ' mx-auto flex max-w-screen-2xl flex-col px-4 sm:px-6 lg:px-8',
         className,
       )}
       {...props}

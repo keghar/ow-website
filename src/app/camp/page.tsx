@@ -22,8 +22,8 @@ export default async function Page() {
   const page = await client.getSingle('camp')
 
   return (
-    <main className="mx-auto max-w-screen-lg">
-      <section className="flex flex-col">
+    <main className=" ">
+      <section className="flex flex-col lg:mx-auto lg:max-w-screen-lg">
         <div className=" mb-20 mt-10 lg:mb-28 xl:mb-32">
           <PrismicRichText
             field={page.data.page_title}

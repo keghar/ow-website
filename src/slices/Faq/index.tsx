@@ -38,7 +38,7 @@ export type FaqProps = SliceComponentProps<Content.FaqSlice>
 const Faq = ({ slice }: FaqProps): JSX.Element => {
   return (
     <Container
-      className="mb-20 flex w-full flex-col justify-center md:gap-4 lg:px-16 "
+      className="mb-20 flex w-full flex-col justify-center md:gap-4 lg:px-16"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
