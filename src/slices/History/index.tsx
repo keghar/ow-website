@@ -14,7 +14,7 @@ const components: JSXMapSerializer = {
     </h2>
   ),
   paragraph: ({ children }) => (
-    <p className="font-body mb-4 text-base font-medium leading-10 tracking-tight text-slate-600 md:mb-8 md:text-lg">
+    <p className="font-body mx-auto mb-4 max-w-prose text-base font-medium  text-slate-700 md:mb-8 md:text-lg lg:text-xl">
       {children}
     </p>
   ),
@@ -38,6 +38,7 @@ export type HistoryProps = SliceComponentProps<Content.HistorySlice>
 const History = ({ slice }: HistoryProps): JSX.Element => {
   return (
     <Container
+      className="mb-8 max-w-screen-xl"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

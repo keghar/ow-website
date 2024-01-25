@@ -1,23 +1,25 @@
+import { CallToAction } from '@/components/CallToAction'
 import Contact from '@/components/Contact'
 import { Container } from '@/components/Container'
 
 export default function Page() {
   return (
-    <Container>
-      <div>
-        <h1 className="bg-gradient-to-b from-slate-800 via-[#0e57afE6] to-slate-800 bg-clip-text text-center font-display text-3xl font-semibold tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
-          Membership
-        </h1>
-        <p>
-          If you are interested in joining Oconee Winds. Please fill out the
-          form below
-        </p>
-        <div>
-          <form>
+    <main>
+      <Container>
+        <div className="flex flex-col justify-center gap-6 md:gap-10 lg:gap-14 xl:gap-16">
+          <h1 className="bg-gradient-to-b from-slate-800 via-[#0e57afE6] to-slate-800 bg-clip-text text-center font-display text-3xl font-semibold tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
+            Membership
+          </h1>
+          <p className="mx-auto max-w-prose text-center text-xl font-medium text-slate-700 md:text-2xl lg:text-3xl">
+            If you are interested in joining Oconee Winds. Please fill out the
+            form below
+          </p>
+          <div>
             <Contact />
-          </form>
+          </div>
         </div>
-      </div>
-    </Container>
+      </Container>
+      <CallToAction />
+    </main>
   )
 }

@@ -14,7 +14,7 @@ import {
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <h2 className=" font-display text-2xl font-semibold text-slate-700 lg:text-3xl">
+    <h2 className=" font-display text-2xl font-semibold text-slate-700 lg:text-3xl xl:text-center">
       {children}
     </h2>
   ),
@@ -41,11 +41,11 @@ export type ExperienceProps = SliceComponentProps<Content.ExperienceSlice>
 const Experience = ({ slice }: ExperienceProps): JSX.Element => {
   return (
     <Container
-      className="flex w-full flex-col md:px-10 lg:px-16"
+      className="flex w-full flex-col md:px-10 lg:px-16 xl:my-10 xl:max-w-4xl"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="my-10 flex flex-col">
+      <div className="my-10 flex flex-col xl:justify-center">
         <PrismicRichText field={slice.primary.title} components={components} />
       </div>
 

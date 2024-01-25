@@ -1,5 +1,13 @@
 'use client'
 
+import {
+  Carousel,
+  CarouselContent,
+  CarouselItem,
+  CarouselNext,
+  CarouselPrevious,
+} from '@/components/ui/carousel'
+
 import { useState } from 'react'
 
 import { Container } from '@/components/Container'
@@ -85,35 +93,47 @@ const Images = ({ slice }: ImagesProps): JSX.Element => {
   }
 
   return (
-    <Container
-      className="mb-12 mt-12 flex  w-full flex-col justify-center p-4"
+    <section
+      className="mx-auto flex max-w-screen-sm flex-col justify-center p-2 py-10"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >
-      <div className="mb-6 flex flex-col justify-center">
+      <div className=" mb-6 flex flex-col justify-center">
         {' '}
         <PrismicRichText field={slice.primary.title} components={components} />
       </div>
+      <div className="mx-auto flex justify-center">
+        <Carousel
+          className=" h-full w-80 px-2  md:mx-auto md:w-full"
+          opts={{
+            loop: true,
+          }}
+        >
+          <CarouselContent className="">
+            {slice.items.map((item, index) => (
+              //@ts-ignore
 
-      <div className="row-span-1 grid h-80 max-w-lg  justify-center justify-items-center gap-4 place-self-center overflow-y-scroll sm:grid-cols-2 md:max-w-xl md:grid-cols-3 lg:grid-cols-4">
-        {slice.items.map((item, index) => (
-          //@ts-ignore
-          <div
-            onClick={() => openModal(item.image as {})}
-            key={index}
-            className="w-full p-2"
-          >
-            <PrismicNextImage field={item.image} height={200} width={200} />
-          </div>
-        ))}
+              <CarouselItem
+                className="basis-3/4 md:basis-1/2 lg:w-full lg:basis-1/2"
+                onClick={() => openModal(item.image as {})}
+                key={index}
+              >
+                <PrismicNextImage field={item.image} />
+              </CarouselItem>
+            ))}
+          </CarouselContent>
+          <CarouselPrevious className="-left-4 top-full md:-left-8  " />
+          <CarouselNext className="-right-4 top-full md:-right-8" />
+        </Carousel>
       </div>
+
       <Modal isOpen={isOpen} onClose={closeModal}>
         {selectedImage && (
           //@ts-ignore
           <PrismicNextImage field={selectedImage as object | null} />
         )}
       </Modal>
-    </Container>
+    </section>
   )
 }
 

@@ -16,7 +16,7 @@ import Link from 'next/link'
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <h2 className=" mb-4 font-display text-2xl font-semibold text-slate-700 ">
+    <h2 className=" mb-4 font-display text-2xl font-semibold text-slate-700 xl:text-center">
       {children}
     </h2>
   ),
@@ -38,7 +38,7 @@ export type FaqProps = SliceComponentProps<Content.FaqSlice>
 const Faq = ({ slice }: FaqProps): JSX.Element => {
   return (
     <Container
-      className="mb-20 flex w-full flex-col justify-center md:gap-4 lg:px-16"
+      className="mb-20 flex w-full flex-col justify-center md:gap-4 md:px-10 lg:px-16 xl:max-w-4xl"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

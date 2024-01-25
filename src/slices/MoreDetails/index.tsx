@@ -11,24 +11,28 @@ import { Button } from '../../components/Button'
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <h2 className=" mb-6 font-display text-2xl font-semibold text-slate-700 lg:text-3xl ">
+    <h2 className=" mb-6 font-display text-2xl font-semibold text-slate-700 lg:text-3xl xl:text-center">
       {children}
     </h2>
   ),
   heading3: ({ children }) => (
-    <h3 className="text-lg font-semibold text-slate-700 md:text-xl lg:text-2xl">
+    <h3 className="text-lg font-semibold text-slate-700 md:text-xl lg:text-2xl xl:mb-4 xl:text-center">
       {children}
     </h3>
   ),
   paragraph: ({ children }) => (
-    <p className="font-body mb-4 text-base font-medium text-slate-600 md:text-lg lg:text-xl">
+    <p className="font-body mb-4 text-base font-medium text-slate-600 md:text-lg lg:text-xl xl:text-center">
       {children}
     </p>
   ),
 
-  list: ({ children }) => <ul className=" mx-4 list-disc">{children}</ul>,
+  list: ({ children }) => (
+    <ul className=" mx-4 list-disc xl:mx-auto xl:flex xl:max-w-xl xl:flex-col xl:justify-center">
+      {children}
+    </ul>
+  ),
   listItem: ({ children }) => (
-    <li className="font-body max-w-prose text-base font-medium text-slate-600 md:text-lg lg:text-xl">
+    <li className="font-body max-w-prose text-base font-medium text-slate-600 md:text-lg lg:text-xl xl:ml-16">
       {children}
     </li>
   ),
@@ -70,7 +74,12 @@ const MoreDetails = ({ slice }: MoreDetailsProps): JSX.Element => {
                 field={item.subtitle_1}
                 components={components}
               />
-              <PrismicRichText field={item.paragraph} components={components} />
+              <div className="xl:mx-auto">
+                <PrismicRichText
+                  field={item.paragraph}
+                  components={components}
+                />
+              </div>
             </div>
           ))}
         </div>
