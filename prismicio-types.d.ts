@@ -676,6 +676,16 @@ export interface CampInformationSliceDefaultPrimary {
    * - **Documentation**: https://prismic.io/docs/field#rich-text-title
    */
   deadline_info: prismic.RichTextField
+
+  /**
+   * Sample Schedule field in *CampInformation → Primary*
+   *
+   * - **Field Type**: Link to Media
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp_information.primary.sample_schedule
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  sample_schedule: prismic.LinkToMediaField
 }
 
 /**

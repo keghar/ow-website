@@ -19,10 +19,12 @@ export function Footer() {
               <NavLink href="/">Donate</NavLink>
             </div>
           </nav>
-          <div className="z-50 flex flex-col items-center justify-center text-6xl font-semibold tracking-wide ">
-            <Logo className="h-40" />
-            <span className={dancingScript.className}>Oconee Winds</span>
-          </div>
+          <Link href="/">
+            <div className="z-10 flex flex-col items-center justify-center text-6xl font-semibold tracking-wide ">
+              <Logo className="h-40" />
+              <span className={dancingScript.className}>Oconee Winds</span>
+            </div>
+          </Link>
         </div>
         <div className="flex flex-col items-center border-t border-slate-400/10 pb-10 sm:flex-row-reverse sm:justify-between">
           <div className="flex gap-x-6">

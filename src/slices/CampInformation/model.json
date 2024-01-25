@@ -99,6 +99,14 @@
             "allowTargetBlank": true,
             "single": "paragraph,strong,em"
           }
+        },
+        "sample_schedule": {
+          "type": "Link",
+          "config": {
+            "label": "Sample Schedule",
+            "placeholder": "",
+            "select": "media"
+          }
         }
       },
       "items": {}

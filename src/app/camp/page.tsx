@@ -22,17 +22,17 @@ export default async function Page() {
   const page = await client.getSingle('camp')
 
   return (
-    <section>
-      <Container className="flex flex-col justify-center">
-        <div className="mx-auto mb-20 mt-10">
+    <main className="mx-auto max-w-screen-lg">
+      <section className="flex flex-col">
+        <div className=" mb-20 mt-10 lg:mb-28 xl:mb-32">
           <PrismicRichText
             field={page.data.page_title}
             components={serializer}
           />
         </div>
         <SliceZone slices={page.data.slices} components={components} />
-      </Container>
-    </section>
+      </section>
+    </main>
   )
 }
 
