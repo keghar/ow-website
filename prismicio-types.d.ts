@@ -163,7 +163,7 @@ interface CampDocumentData {
 export type CampDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithoutUID<Simplify<CampDocumentData>, 'camp', Lang>
 
-type EventDocumentDataSlicesSlice = EventSlice
+type EventDocumentDataSlicesSlice = never
 
 /**
  * Content for Event documents
@@ -256,28 +256,6 @@ interface EventDocumentData {
    * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
    */
   program_link: prismic.LinkToMediaField
-
-  /**
-   * Video Link field in *Event*
-   *
-   * - **Field Type**: Link
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.video_link
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
-   */
-  video_link: prismic.LinkField
-
-  /**
-   * Video Embed field in *Event*
-   *
-   * - **Field Type**: Embed
-   * - **Placeholder**: *None*
-   * - **API ID Path**: event.video_embed
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#embed
-   */
-  video_embed: prismic.EmbedField
 
   /**
    * Archive field in *Event*
@@ -730,33 +708,6 @@ export type CampInformationSlice = prismic.SharedSlice<
 >
 
 /**
- * Default variation for Events Slice
- *
- * - **API ID**: `default`
- * - **Description**: Default
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type EventSliceDefault = prismic.SharedSliceVariation<
-  'default',
-  Record<string, never>,
-  never
->
-
-/**
- * Slice variation for *Events*
- */
-type EventSliceVariation = EventSliceDefault
-
-/**
- * Events Shared Slice
- *
- * - **API ID**: `event`
- * - **Description**: Event
- * - **Documentation**: https://prismic.io/docs/slice
- */
-export type EventSlice = prismic.SharedSlice<'event', EventSliceVariation>
-
-/**
  * Primary content in *Experience → Primary*
  */
 export interface ExperienceSliceDefaultPrimary {
@@ -1116,9 +1067,6 @@ declare module '@prismicio/client' {
       CampInformationSliceDefaultPrimary,
       CampInformationSliceVariation,
       CampInformationSliceDefault,
-      EventSlice,
-      EventSliceVariation,
-      EventSliceDefault,
       ExperienceSlice,
       ExperienceSliceDefaultPrimary,
       ExperienceSliceDefaultItem,

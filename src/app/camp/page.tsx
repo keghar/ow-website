@@ -27,6 +27,7 @@ export default async function Page() {
       <PrismicNextImage
         field={page.data.banner}
         className="2xl:max-h- w-screen-2xl mx-auto max-h-40 md:max-h-52 lg:max-h-72 xl:max-h-96"
+        priority
       />
       <section className="flex flex-col lg:mx-auto lg:max-w-screen-lg">
         <div className=" mb-20 mt-10 lg:mb-28 xl:mb-32">

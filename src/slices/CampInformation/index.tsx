@@ -38,7 +38,6 @@ export type CampInformationProps =
  * Component for "CampInformation" Slices.
  */
 const CampInformation = ({ slice }: CampInformationProps): JSX.Element => {
-  console.log(slice.primary.who_can_attend)
   return (
     <Container
       className="flex w-full flex-col md:gap-4 md:px-10 lg:px-16"
