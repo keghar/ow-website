@@ -11,7 +11,7 @@ import { Button } from '../../components/Button'
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <h2 className=" mb-6 font-display text-2xl font-semibold text-slate-700 lg:text-3xl xl:text-center">
+    <h2 className=" font-display mb-6 text-2xl font-semibold text-slate-700 lg:text-3xl xl:text-center">
       {children}
     </h2>
   ),
@@ -21,7 +21,7 @@ const components: JSXMapSerializer = {
     </h3>
   ),
   paragraph: ({ children }) => (
-    <p className="font-body mb-4 text-base font-medium text-slate-600 md:text-lg lg:text-xl xl:text-center">
+    <p className="font-body mb-4 max-w-prose text-base font-medium text-slate-600 md:text-lg lg:text-xl xl:mx-auto xl:text-center">
       {children}
     </p>
   ),
@@ -57,7 +57,7 @@ export type MoreDetailsProps = SliceComponentProps<Content.MoreDetailsSlice>
 const MoreDetails = ({ slice }: MoreDetailsProps): JSX.Element => {
   return (
     <Container
-      className="flex w-full flex-col md:gap-4 md:px-10 lg:gap-8 lg:px-16"
+      className="flex w-full max-w-screen-lg flex-col md:gap-4 md:px-10 lg:gap-8 lg:px-16"
       data-slice-type={slice.slice_type}
       data-slice-variation={slice.variation}
     >

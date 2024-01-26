@@ -98,6 +98,17 @@ interface CampDocumentData {
   page_title: prismic.TitleField
 
   /**
+   * Banner field in *Camp*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: camp.banner
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  banner: prismic.ImageField<never>
+
+  /**
    * Slice Zone field in *Camp*
    *
    * - **Field Type**: Slice Zone

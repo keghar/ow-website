@@ -39,7 +39,7 @@ export default async function EventLarge() {
   return (
     <Container>
       <h1 className=" mb-14 flex flex-col text-center text-2xl">
-        <span className=" bg-gradient-to-b from-slate-700 via-[#0e57afE6] to-slate-700 bg-clip-text text-center font-display text-3xl tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
+        <span className=" bg-gradient-to-b from-slate-700 via-[#0e57afE6] to-slate-700 bg-clip-text text-center font-display text-3xl font-semibold tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
           Event Archive
         </span>{' '}
       </h1>

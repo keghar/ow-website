@@ -16,12 +16,12 @@ import Link from 'next/link'
 
 const components: JSXMapSerializer = {
   heading2: ({ children }) => (
-    <h2 className=" mb-4 font-display text-2xl font-semibold text-slate-700 xl:text-center">
+    <h2 className=" font-display mb-4 text-2xl font-semibold text-slate-700 xl:text-center">
       {children}
     </h2>
   ),
   paragraph: ({ children }) => (
-    <p className="font-body mb-4 max-w-prose text-base font-medium text-slate-600 md:mb-8 md:text-center md:text-2xl">
+    <p className="font-body mb-4 max-w-prose text-base font-medium text-slate-600 md:mb-8 md:text-center md:text-lg">
       {children}
     </p>
   ),
@@ -55,7 +55,7 @@ const Faq = ({ slice }: FaqProps): JSX.Element => {
                     field={item.question}
                     components={{
                       paragraph: ({ children }) => (
-                        <p className="font-body max-w-prose text-left text-base font-medium text-slate-600 lg:text-xl ">
+                        <p className="font-body max-w-prose text-left text-base font-medium text-slate-600 lg:text-lg xl:text-center">
                           {children}
                         </p>
                       ),

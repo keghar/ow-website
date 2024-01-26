@@ -76,7 +76,7 @@ function Contact() {
                     {/* name */}
                     <label
                       htmlFor="name"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="mb-2 block text-sm font-medium leading-6 text-slate-700"
                     >
                       Name
                     </label>
@@ -86,7 +86,7 @@ function Contact() {
                         id="name"
                         placeholder="Full Name"
                         autoComplete="false"
-                        className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-gray-500 focus:ring-4  ${
+                        className={` w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-gray-500 focus:ring-4  ${
                           errors.name
                             ? 'border-red-600 ring-red-100 focus:border-red-600'
                             : 'border-gray-300 ring-gray-100 focus:border-gray-600'
@@ -108,7 +108,7 @@ function Contact() {
                   <div>
                     <label
                       htmlFor="email"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="my-2 block text-sm font-medium leading-6 text-slate-700"
                     >
                       Email
                     </label>
@@ -126,7 +126,7 @@ function Contact() {
                       type="email"
                       placeholder="Email Address"
                       autoComplete="false"
-                      className={`w-full rounded-md border-2 px-4 py-3  outline-none placeholder:text-gray-500   focus:ring-4  ${
+                      className={`w-full rounded-md border-2 px-4 py-3  outline-none placeholder:text-slate-500   focus:ring-4  ${
                         errors.email
                           ? 'border-red-600 ring-red-100 focus:border-red-600'
                           : 'border-gray-300 ring-gray-100 focus:border-gray-600'
@@ -150,7 +150,7 @@ function Contact() {
                   <div>
                     <label
                       htmlFor="phone_number"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="my-2 block text-sm font-medium leading-6 text-slate-700"
                     >
                       Phone Number
                     </label>
@@ -160,7 +160,7 @@ function Contact() {
                       type="tel"
                       placeholder="Phone Number"
                       autoComplete="false"
-                      className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-gray-500  focus:ring-4  ${
+                      className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-slate-500  focus:ring-4  ${
                         errors.tel
                           ? 'border-red-600 ring-red-100 focus:border-red-600'
                           : 'border-gray-300 ring-gray-100 focus:border-gray-600'
@@ -185,7 +185,7 @@ function Contact() {
                   <div>
                     <label
                       htmlFor="instrument"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="my-2 block text-sm font-medium leading-6 text-slate-700 md:mt-0"
                     >
                       Main Instrument
                     </label>
@@ -195,8 +195,8 @@ function Contact() {
                         id="instrument"
                         placeholder="Instrument"
                         autoComplete="false"
-                        className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-gray-500 focus:ring-4  ${
-                          errors.name
+                        className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-slate-500 focus:ring-4  ${
+                          errors.instrument
                             ? 'border-red-600 ring-red-100 focus:border-red-600'
                             : 'border-gray-300 ring-gray-100 focus:border-gray-600'
                         }`}
@@ -205,9 +205,9 @@ function Contact() {
                           maxLength: 100,
                         })}
                       />
-                      {errors.name && (
+                      {errors.instrument && (
                         <div className="mt-1 text-red-600">
-                          <small>{errors.name.message}</small>
+                          <small>{errors.instrument.message}</small>
                         </div>
                       )}
                     </div>
@@ -216,7 +216,7 @@ function Contact() {
                   <div className="text-left">
                     <label
                       htmlFor="alternative_instrument"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="my-2 block text-sm font-medium leading-6 text-slate-700"
                     >
                       Alternative Instruments
                     </label>
@@ -224,21 +224,21 @@ function Contact() {
                       <input
                         type="text"
                         id="alternative_instrument"
-                        placeholder="Instrument or none"
+                        placeholder="Instrument or N/A"
                         autoComplete="false"
-                        className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-gray-500 focus:ring-4  ${
-                          errors.name
+                        className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-slate-500 focus:ring-4  ${
+                          errors.shows
                             ? 'border-red-600 ring-red-100 focus:border-red-600'
-                            : 'border-gray-300 ring-gray-100 focus:border-gray-600'
+                            : 'border-slate-300 ring-gray-100 focus:border-gray-600'
                         }`}
                         {...register('alternative_instrument', {
-                          required: 'Response is required',
+                          required: 'Response is required put N/A if none',
                           maxLength: 100,
                         })}
                       />
-                      {errors.name && (
+                      {errors.alternative_instrument && (
                         <div className="mt-1 text-red-600">
-                          <small>{errors.name.message}</small>
+                          <small>{errors.alternative_instrument.message}</small>
                         </div>
                       )}
                     </div>
@@ -246,7 +246,7 @@ function Contact() {
                   <div className="text-left">
                     <label
                       htmlFor="shows"
-                      className="block text-sm font-medium leading-6 text-gray-900"
+                      className="my-2 block text-sm font-medium leading-6 text-slate-700"
                     >
                       Which Concerts are you interested in
                     </label>
@@ -256,8 +256,8 @@ function Contact() {
                         id="shows"
                         placeholder="Christmas, Spring, Summer, Fall"
                         autoComplete="false"
-                        className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-gray-500 focus:ring-4  ${
-                          errors.name
+                        className={`w-full rounded-md border-2 px-4 py-3 outline-none placeholder:text-slate-500 focus:ring-4  ${
+                          errors.shows
                             ? 'border-red-600 ring-red-100 focus:border-red-600'
                             : 'border-gray-300 ring-gray-100 focus:border-gray-600'
                         }`}
@@ -266,9 +266,9 @@ function Contact() {
                           maxLength: 100,
                         })}
                       />
-                      {errors.name && (
+                      {errors.shows && (
                         <div className="mt-1 text-red-600">
-                          <small>{errors.name.message}</small>
+                          <small>{errors.shows.message}</small>
                         </div>
                       )}
                     </div>

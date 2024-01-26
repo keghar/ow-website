@@ -7,7 +7,7 @@ import { dancingScript } from '@/utils/fonts'
 
 export function Footer() {
   return (
-    <footer className="bg-slate-50 text-slate-700">
+    <footer className="bg-slate-100 text-slate-700">
       <Container>
         <div className="flex flex-col py-16">
           <nav className="mb-10 text-sm" aria-label="quick links">
