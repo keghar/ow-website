@@ -6,6 +6,7 @@ import Logo from './Logo'
 import { dancingScript } from '@/utils/fonts'
 import { Button } from './Button'
 import { DonateButton } from './DonateButton'
+import { Suspense } from 'react'
 
 export function Footer() {
   return (
@@ -21,7 +22,9 @@ export function Footer() {
               are tax deductable according to law.
             </p>
             <div className="mx-auto my-6">
-              <DonateButton />
+              <Suspense fallback="Loading...">
+                <DonateButton />
+              </Suspense>
             </div>
           </div>
           <nav className="mb-10 text-sm" aria-label="quick links">
