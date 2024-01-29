@@ -14,7 +14,7 @@ const dateFormatter = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' })
 
 const components: JSXMapSerializer = {
   heading3: ({ children }) => (
-    <h1 className=" font-display bg-gradient-to-b from-slate-700 via-[#0e57afE6] to-slate-700 bg-clip-text text-center text-3xl font-semibold tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
+    <h1 className=" font-display bg-gradient-to-b from-slate-700 via-[#0e57afE6] to-slate-700 bg-clip-text py-3 text-center text-3xl font-semibold tracking-wide text-slate-700 text-transparent md:text-6xl lg:text-7xl">
       {children}
     </h1>
   ),
@@ -76,13 +76,14 @@ export default async function Page({ params }: { params: Params }) {
             </PrismicNextLink>
           </Button>
         </div>
-
         <div className="flex max-w-screen-2xl flex-col-reverse justify-center md:mx-auto lg:gap-4 xl:flex-row xl:gap-6 2xl:gap-8">
-          <PrismicNextImage
-            field={event.data.image}
-            height={500}
-            className="mx-auto "
-          />
+          <div className="">
+            <PrismicNextImage
+              field={event.data.image}
+              height={500}
+              className="mx-auto "
+            />
+          </div>
 
           <div
             className="my-auto md:mx-auto"
