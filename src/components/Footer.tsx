@@ -5,8 +5,6 @@ import { NavLink } from '@/components/NavLink'
 import Logo from './Logo'
 import { dancingScript } from '@/utils/fonts'
 import { Button } from './Button'
-import { DonateButton } from './DonateButton'
-import { Suspense } from 'react'
 
 export function Footer() {
   return (
@@ -21,11 +19,12 @@ export function Footer() {
               is a 501&#40;c&#41;&#40;3&#41; charitable nonprofit. All donations
               are tax deductable according to law.
             </p>
-            <div className="mx-auto my-6">
-              <Suspense fallback="Loading...">
-                <DonateButton />
-              </Suspense>
-            </div>
+            <Button
+              href="paypal.com"
+              className="mx-auto mt-4 flex w-40 justify-center"
+            >
+              Donate
+            </Button>
           </div>
           <nav className="mb-10 text-sm" aria-label="quick links">
             <div className=" flex justify-center gap-x-2 md:gap-x-6">
