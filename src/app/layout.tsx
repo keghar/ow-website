@@ -57,7 +57,7 @@ export default function RootLayout({
     <html
       lang="en"
       className={clsx(
-        'h-full scroll-smooth bg-slate-100 antialiased',
+        'h-full scroll-smooth bg-slate-50 antialiased',
         inter.className,
         lexend.variable,
         dancingScript.variable,

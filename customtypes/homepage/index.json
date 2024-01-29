@@ -6,28 +6,15 @@
   "status": true,
   "json": {
     "Main": {
-      "title": {
-        "type": "StructuredText",
-        "config": {
-          "label": "Title",
-          "placeholder": "",
-          "allowTargetBlank": true,
-          "single": "heading1,strong"
-        }
-      },
-      "image": {
-        "type": "Image",
-        "config": {
-          "label": "Image",
-          "constraint": {},
-          "thumbnails": []
-        }
-      },
       "slices": {
         "type": "Slices",
         "fieldset": "Slice Zone",
         "config": {
-          "choices": {}
+          "choices": {
+            "hero": {
+              "type": "SharedSlice"
+            }
+          }
         }
       }
     },

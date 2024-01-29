@@ -1,14 +1,21 @@
 import { CallToAction } from '@/components/CallToAction'
 import EventLarge from '@/components/EventLarge'
 
-import { Hero } from '@/components/Hero'
 import { Membership } from '@/components/Membership'
+import { Metadata } from 'next'
+import { SliceZone } from '@prismicio/react'
 
-export default function Home() {
+import { createClient } from '@/prismicio'
+import { components } from '@/slices'
+
+export default async function Page() {
+  const client = createClient()
+  const page = await client.getSingle('homepage')
+
   return (
     <>
       <main>
-        <Hero />
+        <SliceZone slices={page.data.slices} components={components} />
 
         <EventLarge />
 

@@ -326,34 +326,12 @@ interface EventDocumentData {
 export type EventDocument<Lang extends string = string> =
   prismic.PrismicDocumentWithUID<Simplify<EventDocumentData>, 'event', Lang>
 
-type HomepageDocumentDataSlicesSlice = never
+type HomepageDocumentDataSlicesSlice = HeroSlice
 
 /**
  * Content for Homepage documents
  */
 interface HomepageDocumentData {
-  /**
-   * Title field in *Homepage*
-   *
-   * - **Field Type**: Rich Text
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.title
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
-   */
-  title: prismic.RichTextField
-
-  /**
-   * Image field in *Homepage*
-   *
-   * - **Field Type**: Image
-   * - **Placeholder**: *None*
-   * - **API ID Path**: homepage.image
-   * - **Tab**: Main
-   * - **Documentation**: https://prismic.io/docs/field#image
-   */
-  image: prismic.ImageField<never>
-
   /**
    * Slice Zone field in *Homepage*
    *
@@ -845,6 +823,98 @@ type FaqSliceVariation = FaqSliceDefault
 export type FaqSlice = prismic.SharedSlice<'faq', FaqSliceVariation>
 
 /**
+ * Primary content in *Hero → Primary*
+ */
+export interface HeroSliceDefaultPrimary {
+  /**
+   * Heading field in *Hero → Primary*
+   *
+   * - **Field Type**: Rich Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.heading
+   * - **Documentation**: https://prismic.io/docs/field#rich-text-title
+   */
+  heading: prismic.RichTextField
+
+  /**
+   * Main Image field in *Hero → Primary*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.main_image
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  main_image: prismic.ImageField<never>
+
+  /**
+   * Button1 Label field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.button1_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button1_label: prismic.KeyTextField
+
+  /**
+   * Button1 Link field in *Hero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.button1_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button1_link: prismic.LinkField
+
+  /**
+   * Button2 Label field in *Hero → Primary*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.button2_label
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  button2_label: prismic.KeyTextField
+
+  /**
+   * Button2 Link field in *Hero → Primary*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: hero.primary.button2_link
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  button2_link: prismic.LinkField
+}
+
+/**
+ * Default variation for Hero Slice
+ *
+ * - **API ID**: `default`
+ * - **Description**: Default
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSliceDefault = prismic.SharedSliceVariation<
+  'default',
+  Simplify<HeroSliceDefaultPrimary>,
+  never
+>
+
+/**
+ * Slice variation for *Hero*
+ */
+type HeroSliceVariation = HeroSliceDefault
+
+/**
+ * Hero Shared Slice
+ *
+ * - **API ID**: `hero`
+ * - **Description**: Hero
+ * - **Documentation**: https://prismic.io/docs/slice
+ */
+export type HeroSlice = prismic.SharedSlice<'hero', HeroSliceVariation>
+
+/**
  * Primary content in *History → Primary*
  */
 export interface HistorySliceDefaultPrimary {
@@ -1077,6 +1147,10 @@ declare module '@prismicio/client' {
       FaqSliceDefaultItem,
       FaqSliceVariation,
       FaqSliceDefault,
+      HeroSlice,
+      HeroSliceDefaultPrimary,
+      HeroSliceVariation,
+      HeroSliceDefault,
       HistorySlice,
       HistorySliceDefaultPrimary,
       HistorySliceVariation,

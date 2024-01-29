@@ -23,7 +23,7 @@ export default async function Page() {
   const page = await client.getSingle('camp')
 
   return (
-    <main className=" bg-slate-100 ">
+    <main className=" bg-slate-50 ">
       <PrismicNextImage
         field={page.data.banner}
         className="2xl:max-h- w-screen-2xl mx-auto max-h-40 md:max-h-52 lg:max-h-72 xl:max-h-96"
