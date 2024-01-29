@@ -5,7 +5,7 @@ const baseStyles = {
   solid:
     'group inline-flex items-center justify-center rounded-full py-2 px-4 text-sm font-semibold focus:outline-none focus-visible:outline-2 focus-visible:outline-offset-2 shadow-md shadow-slate-400 ',
   outline:
-    'group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none',
+    'group inline-flex ring-1 items-center justify-center rounded-full py-2 px-4 text-sm focus:outline-none shadow-md shadow-slate-400',
 }
 
 const variantStyles = {
@@ -18,7 +18,7 @@ const variantStyles = {
   },
   outline: {
     slate:
-      'ring-slate-600 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300',
+      'ring-slate-400 text-slate-700 hover:text-slate-900 hover:ring-slate-300 active:bg-slate-100 active:text-slate-600 focus-visible:outline-blue-600 focus-visible:ring-slate-300',
     white:
       'ring-slate-300 text-white hover:ring-slate-500 active:ring-slate-700 active:text-slate-400 focus-visible:outline-white shadow-md shadow-gray-600 ',
   },

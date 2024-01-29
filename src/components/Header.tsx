@@ -1,6 +1,6 @@
 'use client'
 
-import { Fragment } from 'react'
+import { Fragment, Suspense } from 'react'
 import Link from 'next/link'
 import { Popover, Transition } from '@headlessui/react'
 import clsx from 'clsx'
@@ -12,6 +12,7 @@ import { NavLink } from '@/components/NavLink'
 import { dancingScript } from '@/utils/fonts'
 import Image from 'next/image'
 import Logo from './Logo'
+import { DonateButton } from './DonateButton'
 
 function MobileNavLink({
   href,
@@ -62,7 +63,7 @@ function MobileNavigation() {
   return (
     <Popover>
       <Popover.Button
-        className="relative z-10 flex h-8 w-8 items-center justify-center ui-not-focus-visible:outline-none"
+        className="ui-not-focus-visible:outline-none relative z-10 flex h-8 w-8 items-center justify-center"
         aria-label="Toggle Navigation"
       >
         {({ open }) => <MobileNavIcon open={open} />}
@@ -98,7 +99,11 @@ function MobileNavigation() {
             <MobileNavLink href="/membership">Membership</MobileNavLink>
             <MobileNavLink href="/camp">Camp</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
-            <MobileNavLink href="/">Donate</MobileNavLink>
+            <div className="mx-auto">
+              <Suspense fallback="Loading...">
+                <DonateButton />
+              </Suspense>
+            </div>
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -130,9 +135,7 @@ export function Header() {
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              <Button className="w-24 lg:w-32" href="https://paypal.com">
-                Donate
-              </Button>
+              <DonateButton />
             </div>
 
             <div className="-mr-1 md:hidden">

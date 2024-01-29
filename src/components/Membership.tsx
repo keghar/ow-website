@@ -8,7 +8,7 @@ export function Membership() {
     <section className="bg-slate-900 py-16 sm:py-32">
       <Container>
         <div className="flex flex-col justify-center md:text-center">
-          <h2 className="mx-auto font-display text-3xl tracking-tight text-white sm:text-4xl">
+          <h2 className="font-display mx-auto text-3xl tracking-tight text-white sm:text-4xl">
             {/* <SwirlyDoodle className="absolute left-0 top-1/2 h-[1em] w-full fill-blue-400" /> */}
             Membership
           </h2>
@@ -22,7 +22,7 @@ export function Membership() {
               variant="outline"
               color="white"
               href="/membership"
-              className="w-40"
+              className="w-32"
             >
               Contact
             </Button>

@@ -84,7 +84,7 @@ export function CallToAction() {
               type="submit"
               disabled={!input}
               color="white"
-              className="mt-4 w-40"
+              className="mt-4 w-32"
             >
               Submit
             </Button>
