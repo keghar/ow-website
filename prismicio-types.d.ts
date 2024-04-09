@@ -391,6 +391,126 @@ export type HomepageDocument<Lang extends string = string> =
     Lang
   >
 
+type MembershipDocumentDataSlicesSlice = never
+
+/**
+ * Content for Membership documents
+ */
+interface MembershipDocumentData {
+  /**
+   * Title field in *Membership*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: membership.title
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  title: prismic.KeyTextField
+
+  /**
+   * Description field in *Membership*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: membership.description
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  description: prismic.KeyTextField
+
+  /**
+   * Contact Form field in *Membership*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: membership.contact_form
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  contact_form: prismic.KeyTextField
+
+  /**
+   * Form Link field in *Membership*
+   *
+   * - **Field Type**: Link
+   * - **Placeholder**: *None*
+   * - **API ID Path**: membership.form_link
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#link-content-relationship
+   */
+  form_link: prismic.LinkField
+
+  /**
+   * Form Link Text field in *Membership*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: *None*
+   * - **API ID Path**: membership.form_link_text
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  form_link_text: prismic.KeyTextField
+
+  /**
+   * Slice Zone field in *Membership*
+   *
+   * - **Field Type**: Slice Zone
+   * - **Placeholder**: *None*
+   * - **API ID Path**: membership.slices[]
+   * - **Tab**: Main
+   * - **Documentation**: https://prismic.io/docs/field#slices
+   */
+  slices: prismic.SliceZone<MembershipDocumentDataSlicesSlice> /**
+   * Meta Description field in *Membership*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A brief summary of the page
+   * - **API ID Path**: membership.meta_description
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_description: prismic.KeyTextField
+
+  /**
+   * Meta Image field in *Membership*
+   *
+   * - **Field Type**: Image
+   * - **Placeholder**: *None*
+   * - **API ID Path**: membership.meta_image
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#image
+   */
+  meta_image: prismic.ImageField<never>
+
+  /**
+   * Meta Title field in *Membership*
+   *
+   * - **Field Type**: Text
+   * - **Placeholder**: A title of the page used for social media and search engines
+   * - **API ID Path**: membership.meta_title
+   * - **Tab**: SEO & Metadata
+   * - **Documentation**: https://prismic.io/docs/field#key-text
+   */
+  meta_title: prismic.KeyTextField
+}
+
+/**
+ * Membership document from Prismic
+ *
+ * - **API ID**: `membership`
+ * - **Repeatable**: `false`
+ * - **Documentation**: https://prismic.io/docs/custom-types
+ *
+ * @typeParam Lang - Language API ID of the document.
+ */
+export type MembershipDocument<Lang extends string = string> =
+  prismic.PrismicDocumentWithoutUID<
+    Simplify<MembershipDocumentData>,
+    'membership',
+    Lang
+  >
+
 /**
  * Content for Settings documents
  */
@@ -461,6 +581,7 @@ export type AllDocumentTypes =
   | CampDocument
   | EventDocument
   | HomepageDocument
+  | MembershipDocument
   | SettingsDocument
 
 /**
@@ -1100,6 +1221,9 @@ declare module '@prismicio/client' {
       HomepageDocument,
       HomepageDocumentData,
       HomepageDocumentDataSlicesSlice,
+      MembershipDocument,
+      MembershipDocumentData,
+      MembershipDocumentDataSlicesSlice,
       SettingsDocument,
       SettingsDocumentData,
       AllDocumentTypes,

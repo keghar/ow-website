@@ -35,7 +35,7 @@ export function Footer() {
             </div>
           </nav>
           <Link href="/">
-            <div className="z-10 flex flex-col items-center justify-center text-6xl font-semibold tracking-wide ">
+            <div className="z-10 flex flex-col items-center justify-center text-5xl font-semibold tracking-wide md:text-6xl ">
               <Logo className="h-40" />
               <span className={dancingScript.className}>Oconee Winds</span>
             </div>

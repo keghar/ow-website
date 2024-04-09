@@ -19,7 +19,7 @@ const components: JSXMapSerializer = {
     </h1>
   ),
   paragraph: ({ children }) => (
-    <p className="font-body my-auto text-center text-lg font-medium text-slate-600 md:text-2xl">
+    <p className="font-body my-auto max-w-prose text-center text-lg font-medium text-slate-600 md:text-2xl">
       {children}
     </p>
   ),
@@ -54,7 +54,7 @@ export default async function Page({ params }: { params: Params }) {
               ? dateFormatter.format(new Date(event.data.date))
               : 'Coming Soon'}
           </div>
-          <div className="mb-6">
+          <div className="mx-auto my-6">
             <PrismicRichText
               field={event.data.description}
               components={components}
@@ -62,7 +62,7 @@ export default async function Page({ params }: { params: Params }) {
           </div>
           <div className="items center flex justify-center ">
             <p className="font-body my-auto px-2 text-center text-lg font-medium text-slate-600 md:text-2xl">
-              Contuctor:
+              Conductor:
             </p>
             <PrismicRichText
               field={event.data.conductor}

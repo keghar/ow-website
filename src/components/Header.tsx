@@ -98,7 +98,9 @@ function MobileNavigation() {
             <MobileNavLink href="/membership">Membership</MobileNavLink>
             <MobileNavLink href="/camp">Camp</MobileNavLink>
             <hr className="m-2 border-slate-300/40" />
-            <MobileNavLink href="/">Donate</MobileNavLink>
+            <MobileNavLink href="https://donorbox.org/oconeewinds">
+              Donate
+            </MobileNavLink>
           </Popover.Panel>
         </Transition.Child>
       </Transition.Root>
@@ -130,7 +132,10 @@ export function Header() {
           </div>
           <div className="flex items-center gap-x-5 md:gap-x-8">
             <div className="hidden md:block">
-              <Button className="w-24 lg:w-32" href="https://paypal.com">
+              <Button
+                className="w-24 lg:w-32"
+                href="https://donorbox.org/oconeewinds"
+              >
                 Donate
               </Button>
             </div>
