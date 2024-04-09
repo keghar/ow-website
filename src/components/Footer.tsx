@@ -17,10 +17,10 @@ export function Footer() {
               Oconee Winds needs your support to enhance the arts in our
               community! We appreciate any donation you can make. Oconee Winds
               is a 501&#40;c&#41;&#40;3&#41; charitable nonprofit. All donations
-              are tax deductable according to law.
+              are tax deductible according to law.
             </p>
             <Button
-              href="paypal.com"
+              href="https://donorbox.org/oconeewinds"
               className="mx-auto mt-4 flex w-40 justify-center"
             >
               Donate
