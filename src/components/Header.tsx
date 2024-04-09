@@ -113,7 +113,7 @@ export function Header() {
     <header className="pb-10 pt-4">
       <Container>
         <nav className="relative z-50 flex justify-between">
-          <div className=" lg:gap-x-18 flex items-center md:gap-x-8 lg:gap-x-20 xl:gap-x-28 2xl:gap-x-40">
+          <div className="flex w-full items-center md:basis-5/12 xl:basis-4/12 ">
             <Link href="/" aria-label="Home" className=" text-xl font-bold">
               <div className=" flex w-full items-center justify-between gap-3 text-4xl text-slate-700">
                 <Logo className="h-32 w-auto lg:h-48" />
@@ -121,16 +121,17 @@ export function Header() {
                 <span className={dancingScript.className}>Oconee Winds</span>
               </div>
             </Link>
-
-            <div className="hidden md:flex md:gap-x-4">
-              {/* Links  to About, Concerts, Members, Camp, Donate */}
-              <NavLink href="/about">About</NavLink>
-              <NavLink href="/archive">Archive</NavLink>
-              <NavLink href="/membership">Membership</NavLink>
-              <NavLink href="/camp">Camp</NavLink>
-            </div>
           </div>
-          <div className="flex items-center gap-x-5 md:gap-x-8">
+
+          <div className="hidden items-center px-8 md:flex md:basis-6/12  md:justify-center md:gap-x-4 lg:basis-7/12 lg:gap-x-6 xl:gap-x-10">
+            {/* Links  to About, Concerts, Members, Camp, Donate */}
+            <NavLink href="/about">About</NavLink>
+            <NavLink href="/archive">Archive</NavLink>
+            <NavLink href="/membership">Membership</NavLink>
+            <NavLink href="/camp">Camp</NavLink>
+          </div>
+
+          <div className="flex items-center justify-end gap-x-5 md:basis-4/12 md:gap-x-8">
             <div className="hidden md:block">
               <Button
                 className="w-24 lg:w-32"
